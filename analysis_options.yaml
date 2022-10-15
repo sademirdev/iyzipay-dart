@@ -1,9 +1,11 @@
 include: package:very_good_analysis/analysis_options.yaml
-# linter:
-#   rules:
-#     - camel_case_types
 
-# analyzer:
-#   exclude:
-#     - path/to/excluded/files/**
+analyzer:
+  exclude:
+    - '**/*.g.dart'
+    - 'test/.test_coverage.dart'
 
+linter:
+  rules:
+    lines_longer_than_80_chars: false
+    prefer_single_quotes: true
