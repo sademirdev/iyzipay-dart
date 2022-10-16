@@ -25,7 +25,7 @@ class Utils {
 
     final header = <String, String>{};
 
-    final randomString = _generateRandomString();
+    final randomString = generateRandomString();
 
     const CONTENT_TYPE = {'Content-Type': 'application/json; charset=UTF-8'};
     const CLIENT_VERSION = {'x-iyzi-client-version': 'iyzipay-node-2.0.48'};
@@ -37,7 +37,7 @@ class Utils {
       ..addAll(CLIENT_VERSION);
 
     if (uri?.contains(V2) ?? false) {
-      header[AUTHORIZATION] = _generateAuthorizationHeaderV2(
+      header[AUTHORIZATION] = generateAuthorizationHeaderV2(
         apiKey: apiKey,
         randomString: randomString,
         secretKey: secretKey,
@@ -47,24 +47,24 @@ class Utils {
 
       return header;
     } else {
-      header[AUTHORIZATION] = _generateAuthorizationHeader(
+      header[AUTHORIZATION] = generateAuthorizationHeader(
         apiKey: apiKey,
         randomString: randomString,
         secretKey: secretKey,
-        body: _generatePkiString(body),
+        body: generatePkiString(body),
       );
 
       return header;
     }
   }
 
-  String _generateRandomString() {
+  String generateRandomString() {
     final first = DateTime.now().millisecondsSinceEpoch.toString().substring(7);
     final second = Random().nextDouble().toString().substring(2);
     return first + second;
   }
 
-  String _generateAuthorizationHeaderV2({
+  String generateAuthorizationHeaderV2({
     required String apiKey,
     required String randomString,
     required String secretKey,
@@ -73,7 +73,7 @@ class Utils {
   }) {
     const IYZI_WS_HEADER_NAME_V2 = 'IYZWSv2';
 
-    final hash = _generateHashV2(
+    final hash = generateHashV2(
       apiKey: apiKey,
       randomString: randomString,
       secretKey: secretKey,
@@ -84,7 +84,7 @@ class Utils {
     return IYZI_WS_HEADER_NAME_V2 + BLANK + hash;
   }
 
-  String _generateHashV2({
+  String generateHashV2({
     required String apiKey,
     required String randomString,
     required String secretKey,
@@ -111,7 +111,7 @@ class Utils {
     return base64.encode(resultEncoded);
   }
 
-  String _generateAuthorizationHeader({
+  String generateAuthorizationHeader({
     required String apiKey,
     required String randomString,
     required String secretKey,
@@ -119,7 +119,7 @@ class Utils {
   }) {
     const IYZI_WS_HEADER_NAME = 'IYZWS';
 
-    final hash = _generateHash(
+    final hash = generateHash(
       apiKey: apiKey,
       randomString: randomString,
       secretKey: secretKey,
@@ -129,7 +129,7 @@ class Utils {
     return IYZI_WS_HEADER_NAME + BLANK + apiKey + SEPARATOR + hash;
   }
 
-  String _generateHash({
+  String generateHash({
     required String apiKey,
     required String randomString,
     required String secretKey,
@@ -146,9 +146,9 @@ class Utils {
   ///
   /// Price variables must be converted before this method
   // Todo(sametdmr): Test the function
-  String _generatePkiString(Object obj) {
+  String generatePkiString(Object obj) {
     String checkAndRegenerate(dynamic obj) {
-      if (obj is Object && obj is Map<String, dynamic> || obj is List) return _generatePkiString(obj as Object);
+      if (obj is Object && obj is Map<String, dynamic> || obj is List) return generatePkiString(obj as Object);
       return obj.toString();
     }
 
