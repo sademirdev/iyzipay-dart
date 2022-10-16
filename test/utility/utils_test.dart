@@ -82,52 +82,52 @@ void main() {
 
   group('Format Price Test:', () {
     test('Should convert non-float price', () {
-      final result = utils.formatPrice('22');
+      final result = Utils.formatPrice('22');
       expect(result, '22.0');
     });
 
     test('Should convert float price', () {
-      final result = utils.formatPrice('23.0');
+      final result = Utils.formatPrice('23.0');
       expect(result, '23.0');
     });
 
     test('Should eliminate floating zeros', () {
-      final result = utils.formatPrice('15.340000');
+      final result = Utils.formatPrice('15.340000');
       expect(result, '15.34');
     });
 
     test('Should not eliminate leading zero', () {
-      final result = utils.formatPrice('0.12345');
+      final result = Utils.formatPrice('0.12345');
       expect(result, '0.12345');
     });
 
     test('Should eliminate leading zero containing only one zero', () {
-      final result = utils.formatPrice('22.00');
+      final result = Utils.formatPrice('22.00');
       expect(result, '22.0');
     });
 
     test('Should not eliminate zeros in floating value', () {
-      final result = utils.formatPrice('23.00450067');
+      final result = Utils.formatPrice('23.00450067');
       expect(result, '23.00450067');
     });
 
     test('Should convert integer to string', () {
-      final result = utils.formatPrice(23);
+      final result = Utils.formatPrice(23);
       expect(result, '23.0');
     });
 
     test('Should convert float to string', () {
-      final result = utils.formatPrice(23.12);
+      final result = Utils.formatPrice(23.12);
       expect(result, '23.12');
     });
 
     test('Should return same price if given price is null', () {
-      final result = utils.formatPrice(double.nan);
+      final result = Utils.formatPrice(double.nan);
       expect(result, isNull);
     });
 
     test('Should be null', () {
-      final result = utils.formatPrice('price');
+      final result = Utils.formatPrice('price');
       expect(result, isNull);
     });
   });

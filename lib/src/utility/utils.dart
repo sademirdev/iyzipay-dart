@@ -3,15 +3,21 @@ import 'dart:math';
 
 import 'package:crypto/crypto.dart';
 
-/// Todo(sametdmr): Handle documentation
+/// The Utility class which give some capability to Iyzipay operations
+///
+/// NOTE: The [formatPrice] method should be used with every price variable to
+/// avoid any unexpected errors.
 class Utils {
-  /// A literal string for some functions as a separator: `:`
+  /// A literal string which helps for generating authorization header
   final _separator = ':';
 
-  /// A literal string for some functions as a blank: ` `
+  /// A literal string which helps for generating authorization header
   final _blank = ' ';
 
-  /// Todo(sametdmr): Handle documentation
+  /// Generates the header for all request
+  ///
+  /// it returns two different result for particular api version,
+  /// see more [generateAuthorizationHeader], [generateAuthorizationHeaderV2]
   Map<String, String> generateHttpHeader({
     required String apiKey,
     required String secretKey,
@@ -56,12 +62,14 @@ class Utils {
     }
   }
 
+  /// Generates a random string
   String generateRandomString() {
     final first = DateTime.now().millisecondsSinceEpoch.toString().substring(7);
     final second = Random().nextDouble().toString().substring(2);
     return first + second;
   }
 
+  /// Generates authorization header for v2 version of api
   String generateAuthorizationHeaderV2({
     required String apiKey,
     required String randomString,
@@ -82,6 +90,7 @@ class Utils {
     return iyziWsHeaderNameV2 + _blank + hash;
   }
 
+  /// Generates hash for v2 version of api
   String generateHashV2({
     required String apiKey,
     required String randomString,
@@ -109,6 +118,7 @@ class Utils {
     return base64.encode(resultEncoded);
   }
 
+  /// Generates authorization header for v1 version of api
   String generateAuthorizationHeader({
     required String apiKey,
     required String randomString,
@@ -127,6 +137,7 @@ class Utils {
     return iyziWsHeaderName + _blank + apiKey + _separator + hash;
   }
 
+  /// Generates hash for v1 version of api
   String generateHash({
     required String apiKey,
     required String randomString,
@@ -143,6 +154,7 @@ class Utils {
   /// It should be used after `toJson` method, otherwise it will probably return '[]'
   ///
   /// Price variables must be converted before this method
+
   // Todo(sametdmr): Test the function
   String generatePkiString(Object obj) {
     String checkAndRegenerate(dynamic obj) {
@@ -195,10 +207,11 @@ class Utils {
     return str.toString();
   }
 
-  /// Formats the given dynamic [price] to [String]
+  /// Formats the given dynamic [price] to [String]. It should be used with all
+  /// price variable in order to avoid any errors.
   ///
   /// if the given value is not the expected one function will return null.
-  String? formatPrice(dynamic price) {
+  static String? formatPrice(dynamic price) {
     if (price == null) return null;
 
     if (price is num || price is String) {
@@ -210,7 +223,7 @@ class Utils {
     return null;
   }
 
-  bool? _isFinite(dynamic price) {
+  static bool? _isFinite(dynamic price) {
     if (price is num) {
       return price.isFinite;
     }
