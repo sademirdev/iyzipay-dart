@@ -1,5 +1,3 @@
-// ignore_for_file: constant_identifier_names
-
 import 'dart:convert';
 import 'dart:math';
 
@@ -8,10 +6,10 @@ import 'package:crypto/crypto.dart';
 /// Todo(sametdmr): Handle documentation
 class Utils {
   /// A literal string for some functions as a separator: `:`
-  static const SEPARATOR = ':';
+  final _separator = ':';
 
   /// A literal string for some functions as a blank: ` `
-  static const BLANK = ' ';
+  final _blank = ' ';
 
   /// Todo(sametdmr): Handle documentation
   Map<String, String> generateHttpHeader({
@@ -20,24 +18,24 @@ class Utils {
     required Map<String, dynamic> body,
     String? uri,
   }) {
-    const AUTHORIZATION = 'Authorization';
-    const V2 = '/v2/';
+    const authorization = 'Authorization';
+    const v2 = '/v2/';
 
     final header = <String, String>{};
 
     final randomString = generateRandomString();
 
-    const CONTENT_TYPE = {'Content-Type': 'application/json; charset=UTF-8'};
-    const CLIENT_VERSION = {'x-iyzi-client-version': 'iyzipay-node-2.0.48'};
+    const contentType = {'Content-Type': 'application/json; charset=UTF-8'};
+    const clientVersion = {'x-iyzi-client-version': 'iyzipay-node-2.0.48'};
     final randomStringHeader = {'x-iyzi-rnd': randomString};
 
     header
-      ..addAll(CONTENT_TYPE)
+      ..addAll(contentType)
       ..addAll(randomStringHeader)
-      ..addAll(CLIENT_VERSION);
+      ..addAll(clientVersion);
 
-    if (uri?.contains(V2) ?? false) {
-      header[AUTHORIZATION] = generateAuthorizationHeaderV2(
+    if (uri?.contains(v2) ?? false) {
+      header[authorization] = generateAuthorizationHeaderV2(
         apiKey: apiKey,
         randomString: randomString,
         secretKey: secretKey,
@@ -47,7 +45,7 @@ class Utils {
 
       return header;
     } else {
-      header[AUTHORIZATION] = generateAuthorizationHeader(
+      header[authorization] = generateAuthorizationHeader(
         apiKey: apiKey,
         randomString: randomString,
         secretKey: secretKey,
@@ -71,7 +69,7 @@ class Utils {
     required Map<String, dynamic> body,
     required String uri,
   }) {
-    const IYZI_WS_HEADER_NAME_V2 = 'IYZWSv2';
+    const iyziWsHeaderNameV2 = 'IYZWSv2';
 
     final hash = generateHashV2(
       apiKey: apiKey,
@@ -81,7 +79,7 @@ class Utils {
       uri: uri,
     );
 
-    return IYZI_WS_HEADER_NAME_V2 + BLANK + hash;
+    return iyziWsHeaderNameV2 + _blank + hash;
   }
 
   String generateHashV2({
@@ -91,9 +89,9 @@ class Utils {
     required Map<String, dynamic> body,
     required String uri,
   }) {
-    const API_KEY_NAME = 'apiKey';
-    const RANDOM_STARING_NAME = 'randomKey';
-    const SIGNATURE_NAME = 'signature';
+    const apiKeyName = 'apiKey';
+    const randomStringName = 'randomKey';
+    const signatureName = 'signature';
 
     final secretKeyEncoded = utf8.encode(secretKey);
     final stringEncoded = utf8.encode(randomString + uri + jsonEncode(body));
@@ -101,9 +99,9 @@ class Utils {
     final signature = Hmac(sha256, secretKeyEncoded).convert(stringEncoded);
 
     final authorizationParams = [
-      API_KEY_NAME + SEPARATOR + apiKey,
-      RANDOM_STARING_NAME + SEPARATOR + randomString,
-      SIGNATURE_NAME + SEPARATOR + signature.toString(),
+      apiKeyName + _separator + apiKey,
+      randomStringName + _separator + randomString,
+      signatureName + _separator + signature.toString(),
     ];
 
     final resultEncoded = utf8.encode(authorizationParams.join('&'));
@@ -117,7 +115,7 @@ class Utils {
     required String secretKey,
     required String body,
   }) {
-    const IYZI_WS_HEADER_NAME = 'IYZWS';
+    const iyziWsHeaderName = 'IYZWS';
 
     final hash = generateHash(
       apiKey: apiKey,
@@ -126,7 +124,7 @@ class Utils {
       body: body,
     );
 
-    return IYZI_WS_HEADER_NAME + BLANK + apiKey + SEPARATOR + hash;
+    return iyziWsHeaderName + _blank + apiKey + _separator + hash;
   }
 
   String generateHash({
