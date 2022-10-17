@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart' hide Response;
-import 'package:iyzipay/src/enum/request_type.dart';
 import 'package:iyzipay/src/interface/request.dart';
 import 'package:iyzipay/src/interface/response.dart';
 import 'package:iyzipay/src/iyzipay_options.dart';
@@ -20,12 +19,11 @@ abstract class IyzipayService {
   ///
   /// [requestModel] The request data
   /// [path] The endpoint path.
-  /// [options] The request options.
-  Future<R?> request<T extends Request<T>, R extends Response<R>>({
+  Future<R?> requestMethod<T extends Request<T>, R extends Response<R>>({
     required T requestModel,
     required R responseModel,
     required String path,
-    required RequestType method,
+    required String method,
   }) async {
     final body = requestModel.toJson();
 
@@ -37,7 +35,7 @@ abstract class IyzipayService {
 
     final dioOptions = Options(
       headers: header,
-      method: method.name,
+      method: method,
     );
 
     try {
