@@ -1,6 +1,7 @@
 import 'package:iyzipay/src/interface/i_iyzipay.dart';
 import 'package:iyzipay/src/mixin/iyzipay_service_mixin.dart';
 
+/// {@template iyzipay}
 /// A powerful iyzipay api client for Dart,
 /// Global configuration, all features. and iyzipay is
 /// very easy to use.
@@ -16,7 +17,10 @@ import 'package:iyzipay/src/mixin/iyzipay_service_mixin.dart';
 ///       ),
 ///     );
 ///   ```
+///
+/// {@endtemplate}
+
 class Iyzipay extends IIyzipay with IyzipayServiceMixin {
-  /// Constructor of [Iyzipay]
+  /// {@macro iyzipay}
   Iyzipay({required super.options});
 }

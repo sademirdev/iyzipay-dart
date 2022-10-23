@@ -1,20 +1,23 @@
+/// {@template request}
 /// An interface which specifies the features of all requests
+/// {@endtemplate}
+
 abstract class Request<T> {
-  /// Constructor of [Request]
-  Request({
+  /// {@macro request}
+  const Request({
     this.locale,
     this.conversationId,
   });
 
-  /// The response language, default: `tr`
+  /// The locale value specified in the request is returned, its default value is `tr`.
   final String? locale;
 
-  /// The id which can be used to match request and response.
+  /// A value that you can send and receive during the request can be used to match the request/response.
   final String? conversationId;
 
-  /// Generates the requests model T from a json
+  /// Converts [T] to [Map]
   T fromJson(Map<String, dynamic> json);
 
-  /// Generates a json from requests model T
+  /// Converts [Map] to [T]
   Map<String, dynamic> toJson();
 }

@@ -15,7 +15,7 @@ class BinNumberService extends IyzipayService {
   }) async {
     final result = requestMethod<RetrieveBinNumberRequest, RetrieveBinNumberResponse>(
       requestModel: request,
-      responseModel: RetrieveBinNumberResponse(),
+      responseModel: const RetrieveBinNumberResponse(),
       path: NetworkPaths.binNumber.path,
       method: RequestType.post.name,
     );

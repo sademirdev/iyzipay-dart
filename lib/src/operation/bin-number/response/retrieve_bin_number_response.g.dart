@@ -23,6 +23,7 @@ RetrieveBinNumberResponse _$RetrieveBinNumberResponseFromJson(
       commercial: json['commercial'] as int?,
       errorCode: json['errorCode'] as String?,
       errorMessage: json['errorMessage'] as String?,
+      errorGroup: json['errorGroup'] as String?,
     );
 
 const _$IyzipayStatusEnumMap = {
@@ -38,6 +39,7 @@ const _$IyzipayLocaleEnumMap = {
 const _$CardTypeEnumMap = {
   CardType.creditCard: 'CREDIT_CARD',
   CardType.debitCard: 'DEBIT_CARD',
+  CardType.prePaidCard: 'PREPAID_CARD',
 };
 
 const _$CardAssociationEnumMap = {

@@ -3,10 +3,14 @@ import 'package:iyzipay/src/interface/request.dart';
 import 'package:iyzipay/src/interface/response.dart';
 import 'package:iyzipay/src/iyzipay_options.dart';
 import 'package:iyzipay/src/utility/utils.dart';
+import 'package:meta/meta.dart';
 
+/// {@template iyzipay_service}
 /// An interface that specifies the features of all operations services
+/// {@endtemplate}
+@immutable
 abstract class IyzipayService {
-  /// Constructor of [IyzipayService]
+  /// {@macro iyzipay_service}
   const IyzipayService(this.dio, this.options);
 
   /// The dio instance which is used all request
@@ -19,7 +23,7 @@ abstract class IyzipayService {
   ///
   /// [requestModel] The request data
   /// [path] The endpoint path.
-  Future<R?> requestMethod<T extends Request<T>, R extends Response<R>>({
+  Future<R?> requestMethod<T extends Request<T>, R extends IResponse<R>>({
     required T requestModel,
     required R responseModel,
     required String path,
