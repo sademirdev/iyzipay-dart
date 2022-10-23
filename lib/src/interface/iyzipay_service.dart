@@ -23,6 +23,7 @@ abstract class IyzipayService {
   ///
   /// [requestModel] The request data
   /// [path] The endpoint path.
+  @internal
   Future<R?> requestMethod<T extends Request<T>, R extends IResponse<R>>({
     required T requestModel,
     required R responseModel,

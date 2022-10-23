@@ -15,5 +15,6 @@ export 'src/iyzipay.dart';
 export 'src/iyzipay_options.dart';
 
 export 'src/operation/bin-number/index.dart';
+export 'src/operation/health-check/index.dart';
 
 export 'src/utility/utils.dart';

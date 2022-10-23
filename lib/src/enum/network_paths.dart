@@ -1,5 +1,8 @@
 /// NetworkPaths indicates the endpoints of the iyzipay api
 enum NetworkPaths {
+  ///
+  healthCheck('/payment/test'),
+
   /// endpoint of bin number `/payment/bin/check`
   binNumber('/payment/bin/check');
 
