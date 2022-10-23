@@ -50,6 +50,8 @@ abstract class IyzipayService {
         options: dioOptions,
       );
 
+      print(response.data);
+
       final data = response.data;
       if (data is Map<String, dynamic>) return responseModel.fromJson(data);
       return null;
