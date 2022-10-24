@@ -3,6 +3,12 @@ enum NetworkPaths {
   /// endpoint of health check `/payment/test`
   healthCheck('/payment/test'),
 
+  /// endpoint of installment info `/payment/auth`
+  createPayment('/payment/auth'),
+
+  /// endpoint of installment info `/payment/detail`
+  retrievePayment('/payment/detail'),
+
   /// endpoint of installment info `/payment/iyzipos/installment`
   installmentInfo('/payment/iyzipos/installment'),
 

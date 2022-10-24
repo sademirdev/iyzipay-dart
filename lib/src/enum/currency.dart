@@ -1,38 +1,35 @@
-// ignore_for_file: constant_identifier_names
-
 import 'package:json_annotation/json_annotation.dart';
 
 ///
+@JsonEnum(valueField: 'value')
 enum Currency {
   /// Value: `TRY`
-  @JsonValue('TRY')
-  TRY,
+  tl('TRY'),
 
   /// Value: `EUR`
-  @JsonValue('EUR')
-  EUR,
+  eur('EUR'),
 
   /// Value: `USD`
-  @JsonValue('USD')
-  USD,
+  usd('USD'),
 
   /// Value: `IRR`
-  @JsonValue('IRR')
-  IRR,
+  irr('IRR'),
 
   /// Value: `GBP`
-  @JsonValue('GBP')
-  GBP,
+  gbp('GBP'),
 
   /// Value: `NOK`
-  @JsonValue('NOK')
-  NOK,
+  nok('NOK'),
 
   /// Value: `RUB`
-  @JsonValue('RUB')
-  RUB,
+  rub('RUB'),
 
   /// Value: `CHF`
-  @JsonValue('CHF')
-  CHF,
+  chf('CHF');
+
+  ///
+  const Currency(this.value);
+
+  ///
+  final String value;
 }

@@ -1,20 +1,23 @@
 import 'package:json_annotation/json_annotation.dart';
 
 ///
+@JsonEnum(valueField: 'value')
 enum ApmType {
   /// Value: `SOFORT`
-  @JsonValue('SOFORT')
-  sofort,
+  sofort('SOFORT'),
 
   /// Value: `IDEAL`
-  @JsonValue('IDEAL')
-  ideal,
+  ideal('IDEAL'),
 
   /// Value: `QIWI`
-  @JsonValue('QIWI')
-  qiwi,
+  qiwi('QIWI'),
 
   /// Value: `GIROPAY`
-  @JsonValue('GIROPAY')
-  giropay,
+  giropay('GIROPAY');
+
+  ///
+  const ApmType(this.value);
+
+  ///
+  final String value;
 }

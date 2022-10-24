@@ -1,12 +1,17 @@
 import 'package:json_annotation/json_annotation.dart';
 
 ///
+@JsonEnum(valueField: 'value')
 enum BasketItemType {
   /// Value: `PHYSICAL`
-  @JsonValue('PHYSICAL')
-  physical,
+  physical('PHYSICAL'),
 
   /// Value: `VIRTUAL`
-  @JsonValue('VIRTUAL')
-  virtual,
+  virtual('VIRTUAL');
+
+  ///
+  const BasketItemType(this.value);
+
+  ///
+  final String value;
 }

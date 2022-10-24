@@ -1,16 +1,20 @@
 import 'package:json_annotation/json_annotation.dart';
 
 ///
+@JsonEnum(valueField: 'value')
 enum PaymentGroup {
   /// Value: `PRODUCT`
-  @JsonValue('PRODUCT')
-  product,
+  product('PRODUCT'),
 
   /// Value: `LISTING`
-  @JsonValue('LISTING')
-  listing,
+  listing('LISTING'),
 
   /// Value: `SUBSCRIPTION`
-  @JsonValue('SUBSCRIPTION')
-  subscription,
+  subscription('SUBSCRIPTION');
+
+  ///
+  const PaymentGroup(this.value);
+
+  ///
+  final String value;
 }

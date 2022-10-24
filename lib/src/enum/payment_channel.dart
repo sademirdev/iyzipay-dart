@@ -1,36 +1,35 @@
 import 'package:json_annotation/json_annotation.dart';
 
 ///
+@JsonEnum(valueField: 'value')
 enum PaymentChannel {
   /// Value: `MOBILE`
-  @JsonValue('MOBILE')
-  mobile,
+  mobile('MOBILE'),
 
   /// Value: `WEB`
-  @JsonValue('WEB')
-  web,
+  web('WEB'),
 
   /// Value: `MOBILE_WEB`
-  @JsonValue('MOBILE_WEB')
-  mobileWeb,
+  mobileWeb('MOBILE_WEB'),
 
   /// Value: `MOBILE_IOS`
-  @JsonValue('MOBILE_IOS')
-  mobileIOS,
+  mobileIOS('MOBILE_IOS'),
 
   /// Value: `MOBILE_ANDROID`
-  @JsonValue('MOBILE_ANDROID')
-  mobileAndroid,
+  mobileAndroid('MOBILE_ANDROID'),
 
   /// Value: `MOBILE_WINDOWS`
-  @JsonValue('MOBILE_WINDOWS')
-  mobileWindows,
+  mobileWindows('MOBILE_WINDOWS'),
 
   /// Value: `MOBILE_TABLET`
-  @JsonValue('MOBILE_TABLET')
-  mobileTablet,
+  mobileTablet('MOBILE_TABLET'),
 
   /// Value: `MOBILE_PHONE`
-  @JsonValue('MOBILE_PHONE')
-  mobilePhone,
+  mobilePhone('MOBILE_PHONE');
+
+  ///
+  const PaymentChannel(this.value);
+
+  ///
+  final String value;
 }
