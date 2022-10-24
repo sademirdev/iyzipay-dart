@@ -14,6 +14,9 @@ class Address {
     required this.country,
   });
 
+  /// Converts [Map] to [Address]
+  factory Address.fromJson(Map<String, dynamic> json) => _$AddressFromJson(json);
+
   /// For ShippingAddress:
   ///
   /// - The delivery address on the merchant side.

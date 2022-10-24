@@ -22,6 +22,9 @@ class Buyer {
     required this.ip,
   });
 
+  /// Converts [Map] to [Buyer]
+  factory Buyer.fromJson(Map<String, dynamic> json) => _$BuyerFromJson(json);
+
   /// The id of the buyer on the merchant side.
   final String id;
 

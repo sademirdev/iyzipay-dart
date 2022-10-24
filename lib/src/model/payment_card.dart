@@ -15,6 +15,9 @@ class PaymentCard {
     this.registerCard,
   });
 
+  /// Converts [Map] to [PaymentCard]
+  factory PaymentCard.fromJson(Map<String, dynamic> json) => _$PaymentCardFromJson(json);
+
   /// The name and surname of the cardholder from whom the payment will be received.
   ///
   /// It is mandatory if payment is not made with a registered card.

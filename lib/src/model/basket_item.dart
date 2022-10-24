@@ -16,6 +16,9 @@ class BasketItem {
     required this.itemType,
   });
 
+  /// Converts [Map] to [BasketItem]
+  factory BasketItem.fromJson(Map<String, dynamic> json) => _$BasketItemFromJson(json);
+
   /// The id of the product in the basket on the merchant side.
   ///
   ///  Note: A maximum of 500 basketItems can be added to a payment request.
