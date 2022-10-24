@@ -24,7 +24,7 @@ abstract class IyzipayService {
   /// [requestModel] The request data
   /// [path] The endpoint path.
   @internal
-  Future<R?> requestMethod<T extends Request<T>, R extends IResponse<R>>({
+  Future<R?> makeRequest<T extends Request<T>, R extends IResponse<R>>({
     required T requestModel,
     required R responseModel,
     required String path,
@@ -56,6 +56,8 @@ abstract class IyzipayService {
       if (data is Map<String, dynamic>) return responseModel.fromJson(data);
       return null;
     } on DioError catch (e) {
+      print(e);
+
       final data = e.response?.data;
       if (data is Map<String, dynamic>) return responseModel.fromJson(data);
       return null;

@@ -11,7 +11,7 @@ class HealthCheckService extends IyzipayService {
 
   ///
   Future<HealthCheckResponse?> test() async {
-    final result = requestMethod<HealthCheckRequest, HealthCheckResponse>(
+    final result = makeRequest<HealthCheckRequest, HealthCheckResponse>(
       requestModel: HealthCheckRequest(),
       responseModel: const HealthCheckResponse(),
       path: NetworkPaths.healthCheck.path,

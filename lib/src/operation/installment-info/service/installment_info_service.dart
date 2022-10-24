@@ -13,7 +13,7 @@ class InstallmentInfoService extends IyzipayService {
   Future<RetrieveInstallmentInfoResponse?> retrieve({
     required RetrieveInstallmentInfoRequest request,
   }) async {
-    final result = requestMethod<RetrieveInstallmentInfoRequest, RetrieveInstallmentInfoResponse>(
+    final result = makeRequest<RetrieveInstallmentInfoRequest, RetrieveInstallmentInfoResponse>(
       requestModel: request,
       responseModel: const RetrieveInstallmentInfoResponse(),
       path: NetworkPaths.installmentInfo.path,

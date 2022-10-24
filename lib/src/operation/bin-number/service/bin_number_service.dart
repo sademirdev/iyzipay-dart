@@ -13,7 +13,7 @@ class BinNumberService extends IyzipayService {
   Future<RetrieveBinNumberResponse?> retrieve({
     required RetrieveBinNumberRequest request,
   }) async {
-    final result = requestMethod<RetrieveBinNumberRequest, RetrieveBinNumberResponse>(
+    final result = makeRequest<RetrieveBinNumberRequest, RetrieveBinNumberResponse>(
       requestModel: request,
       responseModel: const RetrieveBinNumberResponse(),
       path: NetworkPaths.binNumber.path,
