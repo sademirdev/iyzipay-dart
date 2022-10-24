@@ -1,8 +1,14 @@
 import 'package:json_annotation/json_annotation.dart';
 
 ///
+@JsonEnum(valueField: 'value')
 enum PlanPaymentType {
   /// Value: `RECURRING`
-  @JsonValue('RECURRING')
-  recurring,
+  recurring('RECURRING');
+
+  ///
+  const PlanPaymentType(this.value);
+
+  ///
+  final String value;
 }

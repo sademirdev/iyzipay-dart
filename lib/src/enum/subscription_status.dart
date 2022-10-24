@@ -1,28 +1,29 @@
 import 'package:json_annotation/json_annotation.dart';
 
 ///
+@JsonEnum(valueField: 'value')
 enum SubscriptionStatus {
   /// Value: `EXPIRED`
-  @JsonValue('EXPIRED')
-  expired,
+  expired('EXPIRED'),
 
   /// Value: `UNPAID`
-  @JsonValue('UNPAID')
-  unpaid,
+  unpaid('UNPAID'),
 
   /// Value: `CANCELED`
-  @JsonValue('CANCELED')
-  cancelled,
+  cancelled('CANCELED'),
 
   /// Value: `ACTIVE`
-  @JsonValue('ACTIVE')
-  active,
+  active('ACTIVE'),
 
   /// Value: `PENDING`
-  @JsonValue('PENDING')
-  pending,
+  pending('PENDING'),
 
   /// Value: `UPGRADED`
-  @JsonValue('UPGRADED')
-  upgraded,
+  upgraded('UPGRADED');
+
+  ///
+  const SubscriptionStatus(this.value);
+
+  ///
+  final String value;
 }

@@ -1,29 +1,20 @@
 import 'package:json_annotation/json_annotation.dart';
 
 /// The type of the card
-@JsonEnum()
+@JsonEnum(valueField: 'value')
 enum CardType {
   /// Credit Card: `CREDIT_CARD`
-  @JsonValue('CREDIT_CARD')
-  creditCard,
+  creditCard('CREDIT_CARD'),
 
   /// Debit Card: `DEBIT_CARD`
-  @JsonValue('DEBIT_CARD')
-  debitCard,
+  debitCard('DEBIT_CARD'),
 
   /// PrePaid CArd: `PREPAID_CARD`
-  @JsonValue('PREPAID_CARD')
-  prePaidCard;
+  prePaidCard('PREPAID_CARD');
 
-  @override
-  String toString() {
-    switch (this) {
-      case CardType.creditCard:
-        return 'CREDIT_CARD';
-      case CardType.debitCard:
-        return 'DEBIT_CARD';
-      case CardType.prePaidCard:
-        return 'PREPAID_CARD';
-    }
-  }
+  ///
+  const CardType(this.value);
+
+  ///
+  final String value;
 }

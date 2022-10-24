@@ -1,20 +1,23 @@
 import 'package:json_annotation/json_annotation.dart';
 
 ///
+@JsonEnum(valueField: 'value')
 enum SubscriptionPricingPlanInterval {
   /// Value: `DAILY`
-  @JsonValue('DAILY')
-  daily,
+  daily('DAILY'),
 
   /// Value: `WEEKLY`
-  @JsonValue('WEEKLY')
-  weekly,
+  weekly('WEEKLY'),
 
   /// Value: `MONTHLY`
-  @JsonValue('MONTHLY')
-  monthly,
+  monthly('MONTHLY'),
 
   /// Value: `YEARLY`
-  @JsonValue('YEARLY')
-  yearly,
+  yearly('YEARLY');
+
+  ///
+  const SubscriptionPricingPlanInterval(this.value);
+
+  ///
+  final String value;
 }

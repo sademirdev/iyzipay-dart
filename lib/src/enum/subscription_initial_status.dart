@@ -1,12 +1,17 @@
 import 'package:json_annotation/json_annotation.dart';
 
 ///
+@JsonEnum(valueField: 'value')
 enum SubscriptionInitialStatus {
   /// Value: `ACTIVE`
-  @JsonValue('ACTIVE')
-  active,
+  active('ACTIVE'),
 
   /// Value: `PENDING`
-  @JsonValue('PENDING')
-  pending,
+  pending('PENDING');
+
+  ///
+  const SubscriptionInitialStatus(this.value);
+
+  ///
+  final String value;
 }

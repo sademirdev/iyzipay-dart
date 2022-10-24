@@ -1,15 +1,17 @@
 import 'package:json_annotation/json_annotation.dart';
 
 /// IyzipayStatus indicates whether request is successful or not.
+@JsonEnum(valueField: 'value')
 enum IyzipayStatus {
   /// indicates successful request
-  @JsonValue('success')
-  success,
+  success('success'),
 
   /// indicates failure request
-  @JsonValue('failure')
-  failure;
+  failure('failure');
 
-  @override
-  String toString() => name;
+  ///
+  const IyzipayStatus(this.value);
+
+  ///
+  final String value;
 }

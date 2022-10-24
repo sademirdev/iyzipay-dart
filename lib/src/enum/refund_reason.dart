@@ -1,20 +1,23 @@
 import 'package:json_annotation/json_annotation.dart';
 
 ///
+@JsonEnum(valueField: 'value')
 enum RefundReason {
   /// Value: `double_payment`
-  @JsonValue('double_payment')
-  doublePayment,
+  doublePayment('double_payment'),
 
   /// Value: `buyer_request`
-  @JsonValue('buyer_request')
-  buyerRequest,
+  buyerRequest('buyer_request'),
 
   /// Value: `fraud`
-  @JsonValue('fraud')
-  fraud,
+  fraud('fraud'),
 
   /// Value: `other`
-  @JsonValue('other')
-  other,
+  other('other');
+
+  ///
+  const RefundReason(this.value);
+
+  ///
+  final String value;
 }

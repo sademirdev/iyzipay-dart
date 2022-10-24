@@ -1,16 +1,17 @@
 import 'package:json_annotation/json_annotation.dart';
 
 /// Language that the responses are
-@JsonEnum()
+@JsonEnum(valueField: 'value')
 enum IyzipayLocale {
   /// Turkish
-  @JsonValue('tr')
-  tr,
+  tr('tr'),
 
   /// English
-  @JsonValue('en')
-  en;
+  en('en');
 
-  @override
-  String toString() => name;
+  ///
+  const IyzipayLocale(this.value);
+
+  ///
+  final String value;
 }
