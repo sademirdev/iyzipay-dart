@@ -1,6 +1,8 @@
 import 'package:iyzipay/src/enum/card_association.dart';
 import 'package:iyzipay/src/enum/card_type.dart';
 import 'package:iyzipay/src/enum/currency.dart';
+import 'package:iyzipay/src/enum/iyzipay_locale.dart';
+import 'package:iyzipay/src/enum/iyzipay_status.dart';
 import 'package:iyzipay/src/interface/response.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -26,6 +28,10 @@ part 'create_payment_response.g.dart';
 class CreatePaymentResponse extends Response<CreatePaymentResponse> {
   /// {@macro create_payment_response}
   const CreatePaymentResponse({
+    super.status,
+    super.locale,
+    super.systemTime,
+    super.conversationId,
     this.price,
     this.paidPrice,
     this.installment,
@@ -46,6 +52,9 @@ class CreatePaymentResponse extends Response<CreatePaymentResponse> {
     this.authCode,
     this.phase,
     this.hostReference,
+    super.errorCode,
+    super.errorMessage,
+    super.errorGroup,
   });
 
   /// Payment cart amount.
@@ -134,6 +143,10 @@ class CreatePaymentResponse extends Response<CreatePaymentResponse> {
 
   ///
   final String? hostReference;
+
+  /// Converts [Map] to [CreatePaymentResponse]
+  @override
+  CreatePaymentResponse fromJson(Map<String, dynamic> json) => _$CreatePaymentResponseFromJson(json);
 }
 
 ///

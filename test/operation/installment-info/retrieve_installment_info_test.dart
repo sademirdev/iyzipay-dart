@@ -1,6 +1,4 @@
 import 'package:iyzipay/iyzipay.dart';
-import 'package:iyzipay/src/enum/card_association.dart';
-import 'package:iyzipay/src/enum/card_type.dart';
 import 'package:test/test.dart';
 
 import '../../config.dart';
@@ -25,8 +23,8 @@ void main() {
         ),
       );
 
-      expect(response?.status.toString(), 'success');
-      expect(response?.locale.toString(), 'tr');
+      expect(response?.status, IyzipayStatus.success);
+      expect(response?.locale, IyzipayLocale.tr);
       expect(response?.systemTime, isNotNull);
 
       expect(response?.installmentDetails?.first?.bankCode, isNotNull);
@@ -51,13 +49,13 @@ void main() {
     test('should retrieve installments specifically', () async {
       final response = await iyzipay.installmentInfo.retrieve(
         request: RetrieveInstallmentInfoRequest(
-          binNumber: '554960',
           price: Utils.formatPrice('100') ?? '100.0',
+          binNumber: '554960',
         ),
       );
 
-      expect(response?.status.toString(), 'success');
-      expect(response?.locale.toString(), 'tr');
+      expect(response?.status, IyzipayStatus.success);
+      expect(response?.locale, IyzipayLocale.tr);
       expect(response?.systemTime, isNotNull);
 
       expect(response?.installmentDetails?.first?.bankCode, 62);

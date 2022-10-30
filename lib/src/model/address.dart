@@ -73,4 +73,10 @@ class Address {
   ///
   /// - Billing address country information on the merchant side.
   final String country;
+
+  ///
+  Address fromJson(Map<String, dynamic> json) => _$AddressFromJson(json);
+
+  ///
+  Map<String, dynamic> toJson() => _$AddressToJson(this);
 }

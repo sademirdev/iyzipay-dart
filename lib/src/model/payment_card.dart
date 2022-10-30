@@ -49,4 +49,10 @@ class PaymentCard {
   ///
   /// Its default value is `0`, valid values are `0` and `1`.
   final int? registerCard;
+
+  /// Converts [Map] to [PaymentCard]
+  PaymentCard fromJson(Map<String, dynamic> json) => _$PaymentCardFromJson(json);
+
+  /// Converts [PaymentCard] to [Map]
+  Map<String, dynamic> toJson() => _$PaymentCardToJson(this);
 }

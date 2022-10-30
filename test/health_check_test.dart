@@ -17,8 +17,8 @@ void main() {
   test('health check', () async {
     final response = await iyzipay.healthCheck.test();
 
-    expect(response?.status.toString(), 'success');
-    expect(response?.locale.toString(), 'tr');
+    expect(response?.status, IyzipayStatus.success);
+    expect(response?.locale, IyzipayLocale.tr);
     expect(response?.systemTime, isNotNull);
 
     expect(response?.errorCode, isNull);

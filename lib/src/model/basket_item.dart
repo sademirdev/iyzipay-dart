@@ -43,4 +43,10 @@ class BasketItem {
   ///
   /// Valid enum values are `PHYSICAL` and `VIRTUAL`.
   final BasketItemType itemType;
+
+  /// Converts [Map] to [BasketItem]
+  BasketItem fromJson(Map<String, dynamic> json) => _$BasketItemFromJson(json);
+
+  /// Converts [BasketItem] to [Map]
+  Map<String, dynamic> toJson() => _$BasketItemToJson(this);
 }

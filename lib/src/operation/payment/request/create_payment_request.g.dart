@@ -13,11 +13,10 @@ CreatePaymentRequest _$CreatePaymentRequestFromJson(
       conversationId: json['conversationId'] as String?,
       price: json['price'] as String,
       paidPrice: json['paidPrice'] as String,
-      currency: $enumDecode(_$CurrencyEnumMap, json['currency']),
       installment: json['installment'] as int,
-      basketId: json['basketId'] as String?,
       paymentChannel:
           $enumDecodeNullable(_$PaymentChannelEnumMap, json['paymentChannel']),
+      basketId: json['basketId'] as String?,
       paymentGroup:
           $enumDecodeNullable(_$PaymentGroupEnumMap, json['paymentGroup']),
       paymentCard:
@@ -30,6 +29,7 @@ CreatePaymentRequest _$CreatePaymentRequestFromJson(
       basketItems: (json['basketItems'] as List<dynamic>)
           .map((e) => BasketItem.fromJson(e as Map<String, dynamic>))
           .toList(),
+      currency: $enumDecode(_$CurrencyEnumMap, json['currency']),
     );
 
 Map<String, dynamic> _$CreatePaymentRequestToJson(
@@ -46,30 +46,19 @@ Map<String, dynamic> _$CreatePaymentRequestToJson(
   writeNotNull('conversationId', instance.conversationId);
   val['price'] = instance.price;
   val['paidPrice'] = instance.paidPrice;
-  val['currency'] = _$CurrencyEnumMap[instance.currency]!;
   val['installment'] = instance.installment;
-  writeNotNull('basketId', instance.basketId);
   writeNotNull(
       'paymentChannel', _$PaymentChannelEnumMap[instance.paymentChannel]);
+  writeNotNull('basketId', instance.basketId);
   writeNotNull('paymentGroup', _$PaymentGroupEnumMap[instance.paymentGroup]);
-  val['paymentCard'] = instance.paymentCard;
-  val['buyer'] = instance.buyer;
-  val['shippingAddress'] = instance.shippingAddress;
-  val['billingAddress'] = instance.billingAddress;
-  val['basketItems'] = instance.basketItems;
+  val['paymentCard'] = instance.paymentCard.toJson();
+  val['buyer'] = instance.buyer.toJson();
+  val['shippingAddress'] = instance.shippingAddress.toJson();
+  val['billingAddress'] = instance.billingAddress.toJson();
+  val['basketItems'] = instance.basketItems.map((e) => e.toJson()).toList();
+  val['currency'] = _$CurrencyEnumMap[instance.currency]!;
   return val;
 }
-
-const _$CurrencyEnumMap = {
-  Currency.tl: 'TRY',
-  Currency.eur: 'EUR',
-  Currency.usd: 'USD',
-  Currency.irr: 'IRR',
-  Currency.gbp: 'GBP',
-  Currency.nok: 'NOK',
-  Currency.rub: 'RUB',
-  Currency.chf: 'CHF',
-};
 
 const _$PaymentChannelEnumMap = {
   PaymentChannel.mobile: 'MOBILE',
@@ -86,4 +75,15 @@ const _$PaymentGroupEnumMap = {
   PaymentGroup.product: 'PRODUCT',
   PaymentGroup.listing: 'LISTING',
   PaymentGroup.subscription: 'SUBSCRIPTION',
+};
+
+const _$CurrencyEnumMap = {
+  Currency.tl: 'TRY',
+  Currency.eur: 'EUR',
+  Currency.usd: 'USD',
+  Currency.irr: 'IRR',
+  Currency.gbp: 'GBP',
+  Currency.nok: 'NOK',
+  Currency.rub: 'RUB',
+  Currency.chf: 'CHF',
 };

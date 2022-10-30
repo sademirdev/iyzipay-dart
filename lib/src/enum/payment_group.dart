@@ -13,6 +13,7 @@ enum PaymentGroup {
   subscription('SUBSCRIPTION');
 
   ///
+
   const PaymentGroup(this.value);
 
   ///

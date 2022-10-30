@@ -10,6 +10,8 @@ library iyzipay;
 
 export 'src/enum/apm_type.dart';
 export 'src/enum/basket_item_type.dart';
+export 'src/enum/card_association.dart';
+export 'src/enum/card_type.dart';
 export 'src/enum/currency.dart';
 export 'src/enum/iyzipay_locale.dart';
 export 'src/enum/iyzipay_status.dart';

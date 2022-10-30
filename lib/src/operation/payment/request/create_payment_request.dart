@@ -27,7 +27,7 @@ part 'create_payment_request.g.dart';
 /// order number on the merchant side.
 ///
 /// {@endtemplate}
-@JsonSerializable(includeIfNull: false)
+@JsonSerializable(includeIfNull: false, explicitToJson: true)
 class CreatePaymentRequest extends Request<CreatePaymentRequest> {
   /// {@macro create_payment_request}
   const CreatePaymentRequest({
@@ -35,16 +35,16 @@ class CreatePaymentRequest extends Request<CreatePaymentRequest> {
     super.conversationId,
     required this.price,
     required this.paidPrice,
-    required this.currency,
     required this.installment,
-    this.basketId,
     this.paymentChannel,
+    this.basketId,
     this.paymentGroup,
     required this.paymentCard,
     required this.buyer,
     required this.shippingAddress,
     required this.billingAddress,
     required this.basketItems,
+    required this.currency,
   });
 
   /// Payment cart amount. The sum of the breakdown
@@ -60,22 +60,17 @@ class CreatePaymentRequest extends Request<CreatePaymentRequest> {
   /// Warning: Use `Utils.formatPrice` method with this parameter, (and all price parameters)
   final String paidPrice;
 
-  /// The currency in which the payment will be taken is determined as
-  /// the default `TL`. Make sure that the shopping is defined in your account
-  /// with different currencies such as `USD`, `EUR`, `GBP` for other values.
-  final Currency currency;
-
   /// Installment information must be sent `1` for a single withdrawal.
   /// Valid values: `1`, `2`, `3`, `6`, `9`, `12`
   final int installment;
 
-  /// It is the id used by the merchant to identify the basket of
-  /// the relevant payment. It can be an order number or a meaningful value.
-  final String? basketId;
-
   /// Payment channel. Valid values are presented in enum: `WEB`, `MOBILE`,
   /// `MOBILE_WEB`, `MOBILE_IOS`, `MOBILE_ANDROID`, `MOBILE_WINDOWS`, `MOBILE_TABLET`, `MOBILE_PHONE`
   final PaymentChannel? paymentChannel;
+
+  /// It is the id used by the merchant to identify the basket of
+  /// the relevant payment. It can be an order number or a meaningful value.
+  final String? basketId;
 
   /// The payment group is the default `PRODUCT`. Valid values are presented
   /// in the enum: `PRODUCT`, `LISTING`, `SUBSCRIPTION`, `OTHER`.
@@ -96,9 +91,16 @@ class CreatePaymentRequest extends Request<CreatePaymentRequest> {
   ///
   final List<BasketItem> basketItems;
 
+  /// The currency in which the payment will be taken is determined as
+  /// the default `TL`. Make sure that the shopping is defined in your account
+  /// with different currencies such as `USD`, `EUR`, `GBP` for other values.
+  final Currency currency;
+
+  /// Converts [Map] to [CreatePaymentRequest]
   @override
   CreatePaymentRequest fromJson(Map<String, dynamic> json) => _$CreatePaymentRequestFromJson(json);
 
+  /// Converts [CreatePaymentRequest] to [Map]
   @override
   Map<String, dynamic> toJson() => _$CreatePaymentRequestToJson(this);
 }

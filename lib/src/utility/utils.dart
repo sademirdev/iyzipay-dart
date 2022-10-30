@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:math';
 
 import 'package:crypto/crypto.dart';
 
@@ -32,13 +31,13 @@ class Utils {
     final randomString = generateRandomString();
 
     const contentType = {'Content-Type': 'application/json; charset=UTF-8'};
-    const clientVersion = {'x-iyzi-client-version': 'iyzipay-node-2.0.48'};
+    // const clientVersion = {'x-iyzi-client-version': 'iyzipay-node-2.0.48'};
     final randomStringHeader = {'x-iyzi-rnd': randomString};
 
     header
       ..addAll(contentType)
-      ..addAll(randomStringHeader)
-      ..addAll(clientVersion);
+      ..addAll(randomStringHeader);
+    // ..addAll(clientVersion);
 
     if (uri?.contains(v2) ?? false) {
       header[authorization] = generateAuthorizationHeaderV2(
@@ -64,9 +63,10 @@ class Utils {
 
   /// Generates a random string
   String generateRandomString() {
-    final first = DateTime.now().millisecondsSinceEpoch.toString().substring(7);
-    final second = Random().nextDouble().toString().substring(2);
-    return first + second;
+    // final first = DateTime.now().millisecondsSinceEpoch.toString().substring(7);
+    // final second = Random().nextDouble().toString().substring(2);
+    // return first + second;
+    return '123456789';
   }
 
   /// Generates authorization header for v2 version of api
