@@ -93,6 +93,8 @@ void main() {
         ),
       );
 
+      print(response?.paymentId);
+
       expect(response?.status, IyzipayStatus.success);
       expect(response?.locale, IyzipayLocale.tr);
       expect(response?.systemTime, isNotNull);
@@ -127,7 +129,7 @@ void main() {
       expect(response?.itemTransactions?.first?.blockageRate, 0.0);
       expect(response?.itemTransactions?.first?.blockageRateAmountMerchant, 0.0);
       expect(response?.itemTransactions?.first?.blockageRateAmountSubMerchant, 0);
-      expect(response?.itemTransactions?.first?.blockageResolvedDate, '2022-11-07 00:00:00');
+      expect(response?.itemTransactions?.first?.blockageResolvedDate, '2022-11-09 00:00:00');
       expect(response?.itemTransactions?.first?.subMerchantPrice, 0);
       expect(response?.itemTransactions?.first?.subMerchantPayoutRate, 0.0);
       expect(response?.itemTransactions?.first?.subMerchantPayoutAmount, 0);

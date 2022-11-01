@@ -31,13 +31,13 @@ class Utils {
     final randomString = generateRandomString();
 
     const contentType = {'Content-Type': 'application/json; charset=UTF-8'};
-    // const clientVersion = {'x-iyzi-client-version': 'iyzipay-node-2.0.48'};
+    const clientVersion = {'x-iyzi-client-version': 'iyzipay-node-2.0.48'};
     final randomStringHeader = {'x-iyzi-rnd': randomString};
 
     header
       ..addAll(contentType)
-      ..addAll(randomStringHeader);
-    // ..addAll(clientVersion);
+      ..addAll(randomStringHeader)
+      ..addAll(clientVersion);
 
     if (uri?.contains(v2) ?? false) {
       header[authorization] = generateAuthorizationHeaderV2(
@@ -146,6 +146,7 @@ class Utils {
   }) {
     final string = apiKey + randomString + secretKey + body;
     final bytes = utf8.encode(string); // data being hashed
+    // final bytes = string.codeUnits;
     final digest = sha1.convert(bytes);
 
     return base64.encode(digest.bytes);

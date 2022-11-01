@@ -1,5 +1,6 @@
 import 'package:iyzipay/src/interface/i_iyzipay.dart';
 import 'package:iyzipay/src/operation/bin-number/service/bin_number_service.dart';
+import 'package:iyzipay/src/operation/cancel/service/cancel_service.dart';
 import 'package:iyzipay/src/operation/health-check/health_check_service.dart';
 import 'package:iyzipay/src/operation/installment-info/service/installment_info_service.dart';
 import 'package:iyzipay/src/operation/payment/service/payment_service.dart';
@@ -11,6 +12,9 @@ mixin IyzipayServiceMixin on IIyzipay {
 
   /// Service of Bin Number
   BinNumberService get binNumber => BinNumberService(dio, options);
+
+  ///
+  CancelService get cancel => CancelService(dio, options);
 
   ///
   InstallmentInfoService get installmentInfo => InstallmentInfoService(dio, options);

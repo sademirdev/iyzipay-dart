@@ -31,6 +31,7 @@ export 'src/iyzipay_options.dart';
 export 'src/model/index.dart';
 
 export 'src/operation/bin-number/index.dart';
+export 'src/operation/cancel/index.dart';
 export 'src/operation/health-check/index.dart';
 export 'src/operation/installment-info/index.dart';
 export 'src/operation/payment/index.dart';

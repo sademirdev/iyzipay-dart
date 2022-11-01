@@ -6,6 +6,9 @@ enum NetworkPaths {
   /// endpoint of installment info `/payment/auth`
   createPayment('/payment/auth'),
 
+  /// endpoint of installment info `/payment/cancel`
+  cancel('/payment/cancel'),
+
   /// endpoint of installment info `/payment/detail`
   retrievePayment('/payment/detail'),
 
