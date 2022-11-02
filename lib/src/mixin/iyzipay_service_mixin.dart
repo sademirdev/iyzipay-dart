@@ -4,6 +4,7 @@ import 'package:iyzipay/src/operation/cancel/service/cancel_service.dart';
 import 'package:iyzipay/src/operation/health-check/health_check_service.dart';
 import 'package:iyzipay/src/operation/installment-info/service/installment_info_service.dart';
 import 'package:iyzipay/src/operation/payment/service/payment_service.dart';
+import 'package:iyzipay/src/operation/refund/service/refund_service.dart';
 
 /// The mixin which gives a capability to Iyzipay in order to use all operation service
 mixin IyzipayServiceMixin on IIyzipay {
@@ -15,6 +16,9 @@ mixin IyzipayServiceMixin on IIyzipay {
 
   ///
   CancelService get cancel => CancelService(dio, options);
+
+  ///
+  RefundService get refund => RefundService(dio, options);
 
   ///
   InstallmentInfoService get installmentInfo => InstallmentInfoService(dio, options);

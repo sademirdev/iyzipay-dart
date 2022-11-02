@@ -9,6 +9,9 @@ enum NetworkPaths {
   /// endpoint of installment info `/payment/cancel`
   cancel('/payment/cancel'),
 
+  /// endpoint of installment info `/payment/refund`
+  refund('/payment/refund'),
+
   /// endpoint of installment info `/payment/detail`
   retrievePayment('/payment/detail'),
 

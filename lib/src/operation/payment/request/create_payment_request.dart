@@ -50,14 +50,16 @@ class CreatePaymentRequest extends Request<CreatePaymentRequest> {
   /// Payment cart amount. The sum of the breakdown
   /// (products in the basket) amounts must be equal to the basket amount.
   ///
-  /// Warning: Use `Utils.formatPrice` method with this parameter, (and all price parameters)
+  /// {@template utils_format_price_warming}
+  /// > Warning: Use `Utils.formatPrice` method with all `price` parameters with in Requests.
+  /// {@endtemplate}
   final String price;
 
   /// The discount will be realized in the future from the POS
   /// calculated with the interest. The price is worth
   /// it can be less than, greater or equal.
   ///
-  /// Warning: Use `Utils.formatPrice` method with this parameter, (and all price parameters)
+  /// {@macro utils_format_price_warming}
   final String paidPrice;
 
   /// Installment information must be sent `1` for a single withdrawal.
@@ -91,9 +93,11 @@ class CreatePaymentRequest extends Request<CreatePaymentRequest> {
   ///
   final List<BasketItem> basketItems;
 
+  /// {@template currency}
   /// The currency in which the payment will be taken is determined as
   /// the default `TL`. Make sure that the shopping is defined in your account
   /// with different currencies such as `USD`, `EUR`, `GBP` for other values.
+  /// {@endtemplate}
   final Currency currency;
 
   /// Converts [Map] to [CreatePaymentRequest]

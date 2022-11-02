@@ -35,5 +35,6 @@ export 'src/operation/cancel/index.dart';
 export 'src/operation/health-check/index.dart';
 export 'src/operation/installment-info/index.dart';
 export 'src/operation/payment/index.dart';
+export 'src/operation/refund/index.dart';
 
 export 'src/utility/utils.dart';
