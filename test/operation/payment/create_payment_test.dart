@@ -129,11 +129,11 @@ void main() {
       expect(response?.itemTransactions?.first?.iyziCommissionFee, 0.075);
       expect(response?.itemTransactions?.first?.blockageRate, 0.0);
       expect(response?.itemTransactions?.first?.blockageRateAmountMerchant, 0.0);
-      expect(response?.itemTransactions?.first?.blockageRateAmountSubMerchant, 0);
+      expect(response?.itemTransactions?.first?.blockageRateAmountSubMerchant, 0.0);
       expect(response?.itemTransactions?.first?.blockageResolvedDate, isNotNull);
-      expect(response?.itemTransactions?.first?.subMerchantPrice, 0);
+      expect(response?.itemTransactions?.first?.subMerchantPrice, 0.0);
       expect(response?.itemTransactions?.first?.subMerchantPayoutRate, 0.0);
-      expect(response?.itemTransactions?.first?.subMerchantPayoutAmount, 0);
+      expect(response?.itemTransactions?.first?.subMerchantPayoutAmount, 0.0);
       expect(response?.itemTransactions?.first?.merchantPayoutAmount, 0.2706);
     });
   });

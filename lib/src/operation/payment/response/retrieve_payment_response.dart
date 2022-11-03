@@ -7,28 +7,17 @@ import 'package:iyzipay/src/interface/response.dart';
 import 'package:iyzipay/src/operation/payment/model/item_transaction.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'create_payment_response.g.dart';
+part 'retrieve_payment_response.g.dart';
 
-/// {@template create_payment_response}
-///
-/// - The status parameter gives information about the status of the process.
-/// `success` means that the transaction has been made successfully and the money
-/// has been withdrawn. `failure` means that the operation has failed and error
-/// notification has been made regarding the reason.
-///
-/// - `paymentStatus` comes as null for this service.
-///
-/// - The `paymentId` and `paymentTransactionId` values must be kept.
-///
-/// - If the process ended with `failure` status, `errorCode`, `errorMessage`,
-/// `errorGroup` parameters will return with values.
-///
+/// {@template retrieve_payment_response}
+/// Details of a transaction recorded in iyzico can be queried later.
+/// Payment inquiry service can be used for this.
 /// {@endtemplate}
 
 @JsonSerializable(includeIfNull: false)
-class CreatePaymentResponse extends Response<CreatePaymentResponse> {
-  /// {@macro create_payment_response}
-  const CreatePaymentResponse({
+class RetrievePaymentResponse extends Response<RetrievePaymentResponse> {
+  /// {@macro retrieve_payment_response}
+  const RetrievePaymentResponse({
     super.status,
     super.locale,
     super.systemTime,
@@ -36,6 +25,7 @@ class CreatePaymentResponse extends Response<CreatePaymentResponse> {
     this.price,
     this.paidPrice,
     this.installment,
+    this.paymentStatus,
     this.paymentId,
     this.fraudStatus,
     this.merchantCommissionRate,
@@ -70,6 +60,10 @@ class CreatePaymentResponse extends Response<CreatePaymentResponse> {
   ///
   /// Valid values: `1`, `2`, `3`, `6`, `9`.
   final int? installment;
+
+  /// Shows the result of the operation. Valid values are `SUCCESS`, `FAILURE`,
+  /// `INIT_THREEDS`, `CALLBACK_THREEDS`, `BKM_POS_SELECTED`, `CALLBACK_PECCO`
+  final String? paymentStatus;
 
   /// The id of the payment must be kept by the merchant.
   ///
@@ -145,7 +139,7 @@ class CreatePaymentResponse extends Response<CreatePaymentResponse> {
   ///
   final String? hostReference;
 
-  /// Converts [Map] to [CreatePaymentResponse]
+  /// Converts [Map] to [RetrievePaymentResponse]
   @override
-  CreatePaymentResponse fromJson(Map<String, dynamic> json) => _$CreatePaymentResponseFromJson(json);
+  RetrievePaymentResponse fromJson(Map<String, dynamic> json) => _$RetrievePaymentResponseFromJson(json);
 }

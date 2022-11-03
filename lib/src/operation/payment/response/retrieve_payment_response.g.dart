@@ -1,14 +1,14 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'create_payment_response.dart';
+part of 'retrieve_payment_response.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-CreatePaymentResponse _$CreatePaymentResponseFromJson(
+RetrievePaymentResponse _$RetrievePaymentResponseFromJson(
         Map<String, dynamic> json) =>
-    CreatePaymentResponse(
+    RetrievePaymentResponse(
       status: $enumDecodeNullable(_$IyzipayStatusEnumMap, json['status']),
       locale: $enumDecodeNullable(_$IyzipayLocaleEnumMap, json['locale']),
       systemTime: json['systemTime'] as int?,
@@ -16,6 +16,7 @@ CreatePaymentResponse _$CreatePaymentResponseFromJson(
       price: (json['price'] as num?)?.toDouble(),
       paidPrice: (json['paidPrice'] as num?)?.toDouble(),
       installment: json['installment'] as int?,
+      paymentStatus: json['paymentStatus'] as String?,
       paymentId: json['paymentId'] as String?,
       fraudStatus: json['fraudStatus'] as int?,
       merchantCommissionRate:
@@ -46,8 +47,8 @@ CreatePaymentResponse _$CreatePaymentResponseFromJson(
       errorGroup: json['errorGroup'] as String?,
     );
 
-Map<String, dynamic> _$CreatePaymentResponseToJson(
-    CreatePaymentResponse instance) {
+Map<String, dynamic> _$RetrievePaymentResponseToJson(
+    RetrievePaymentResponse instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -66,6 +67,7 @@ Map<String, dynamic> _$CreatePaymentResponseToJson(
   writeNotNull('price', instance.price);
   writeNotNull('paidPrice', instance.paidPrice);
   writeNotNull('installment', instance.installment);
+  writeNotNull('paymentStatus', instance.paymentStatus);
   writeNotNull('paymentId', instance.paymentId);
   writeNotNull('fraudStatus', instance.fraudStatus);
   writeNotNull('merchantCommissionRate', instance.merchantCommissionRate);
