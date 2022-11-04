@@ -1,18 +1,21 @@
 /// NetworkPaths indicates the endpoints of the iyzipay api
 enum NetworkPaths {
+  /// endpoint of approval `/payment/iyzipos/item/approve`
+  approve('/payment/iyzipos/item/approve'),
+
   /// endpoint of health check `/payment/test`
   healthCheck('/payment/test'),
 
-  /// endpoint of installment info `/payment/auth`
+  /// endpoint of payment creation `/payment/auth`
   createPayment('/payment/auth'),
 
-  /// endpoint of installment info `/payment/cancel`
+  /// endpoint of cancel `/payment/cancel`
   cancel('/payment/cancel'),
 
-  /// endpoint of installment info `/payment/refund`
+  /// endpoint of refund `/payment/refund`
   refund('/payment/refund'),
 
-  /// endpoint of installment info `/payment/detail`
+  /// endpoint of retrieving payment info `/payment/detail`
   retrievePayment('/payment/detail'),
 
   /// endpoint of installment info `/payment/iyzipos/installment`
