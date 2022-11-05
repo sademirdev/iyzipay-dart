@@ -6,6 +6,9 @@ enum NetworkPaths {
   /// endpoint of disapproval `/payment/iyzipos/item/disapprove`
   disapprove('/payment/iyzipos/item/disapprove'),
 
+  /// endpoint of checkout form initialize `/payment/iyzipos/checkoutform/initialize/auth/ecom`
+  checkoutFormInitialize('/payment/iyzipos/checkoutform/initialize/auth/ecom'),
+
   /// endpoint of health check `/payment/test`
   healthCheck('/payment/test'),
 
