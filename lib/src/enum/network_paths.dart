@@ -3,6 +3,9 @@ enum NetworkPaths {
   /// endpoint of approval `/payment/iyzipos/item/approve`
   approve('/payment/iyzipos/item/approve'),
 
+  /// endpoint of disapproval `/payment/iyzipos/item/disapprove`
+  disapprove('/payment/iyzipos/item/disapprove'),
+
   /// endpoint of health check `/payment/test`
   healthCheck('/payment/test'),
 
