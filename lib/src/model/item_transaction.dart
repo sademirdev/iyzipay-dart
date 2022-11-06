@@ -1,4 +1,4 @@
-import 'package:iyzipay/src/operation/payment/model/converted_payout.dart';
+import 'package:iyzipay/src/model/converted_payout.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'item_transaction.g.dart';

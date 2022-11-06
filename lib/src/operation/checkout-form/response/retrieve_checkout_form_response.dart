@@ -4,7 +4,7 @@ import 'package:iyzipay/src/enum/currency.dart';
 import 'package:iyzipay/src/enum/iyzipay_locale.dart';
 import 'package:iyzipay/src/enum/iyzipay_status.dart';
 import 'package:iyzipay/src/interface/response.dart';
-import 'package:iyzipay/src/operation/payment/model/item_transaction.dart';
+import 'package:iyzipay/src/model/item_transaction.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'retrieve_checkout_form_response.g.dart';
