@@ -85,9 +85,8 @@ void main() {
         ),
       );
 
-      print(response?.htmlContent);
-
-      // TODO(sametdmr): complete initialize checkout form test.
+      // ignore: avoid_print
+      print(response?.token);
     });
   });
 }

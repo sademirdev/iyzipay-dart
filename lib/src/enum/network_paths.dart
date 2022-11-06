@@ -9,6 +9,9 @@ enum NetworkPaths {
   /// endpoint of checkout form initialize `/payment/iyzipos/checkoutform/initialize/auth/ecom`
   checkoutFormInitialize('/payment/iyzipos/checkoutform/initialize/auth/ecom'),
 
+  /// endpoint of retrieving checkout form `/payment/iyzipos/checkoutform/auth/ecom/detail`
+  retrieveCheckoutForm('/payment/iyzipos/checkoutform/auth/ecom/detail'),
+
   /// endpoint of health check `/payment/test`
   healthCheck('/payment/test'),
 

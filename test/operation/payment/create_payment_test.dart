@@ -28,7 +28,7 @@ void main() {
           paymentGroup: PaymentGroup.product,
           paymentCard: const PaymentCard(
             cardHolderName: 'John Doe',
-            cardNumber: '5528790000000008',
+            cardNumber: ' ',
             expireYear: '2030',
             expireMonth: '12',
             cvc: '123',
