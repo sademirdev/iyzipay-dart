@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:crypto/crypto.dart';
 
@@ -63,10 +64,9 @@ class Utils {
 
   /// Generates a random string
   String generateRandomString() {
-    // final first = DateTime.now().millisecondsSinceEpoch.toString().substring(7);
-    // final second = Random().nextDouble().toString().substring(2);
-    // return first + second;
-    return '123456789';
+    final first = DateTime.now().millisecondsSinceEpoch.toString().substring(7);
+    final second = Random().nextDouble().toString().substring(2);
+    return first + second;
   }
 
   /// Generates authorization header for v2 version of api
