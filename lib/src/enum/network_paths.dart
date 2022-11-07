@@ -9,6 +9,9 @@ enum NetworkPaths {
   /// endpoint of checkout form initialize `/payment/iyzipos/checkoutform/initialize/auth/ecom`
   checkoutFormInitialize('/payment/iyzipos/checkoutform/initialize/auth/ecom'),
 
+  /// endpoint of create card `/cardstorage/card`
+  card('/cardstorage/card'),
+
   /// endpoint of retrieving checkout form `/payment/iyzipos/checkoutform/auth/ecom/detail`
   retrieveCheckoutForm('/payment/iyzipos/checkoutform/auth/ecom/detail'),
 

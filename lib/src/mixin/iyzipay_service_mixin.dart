@@ -2,6 +2,7 @@ import 'package:iyzipay/src/interface/i_iyzipay.dart';
 import 'package:iyzipay/src/operation/approval/service/approval_service.dart';
 import 'package:iyzipay/src/operation/bin-number/service/bin_number_service.dart';
 import 'package:iyzipay/src/operation/cancel/service/cancel_service.dart';
+import 'package:iyzipay/src/operation/card/service/card_service.dart';
 import 'package:iyzipay/src/operation/checkout-form/service/checkout_form_service.dart';
 import 'package:iyzipay/src/operation/disapproval/service/disapprove_service.dart';
 import 'package:iyzipay/src/operation/health-check/health_check_service.dart';
@@ -16,6 +17,9 @@ mixin IyzipayServiceMixin on IIyzipay {
 
   ///
   CheckoutFormService get checkoutForm => CheckoutFormService(dio, options);
+
+  ///
+  CardService get card => CardService(dio, options);
 
   ///
   DisapproveService get disapproval => DisapproveService(dio, options);
