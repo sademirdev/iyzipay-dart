@@ -14,6 +14,8 @@ void main() {
     ),
   );
 
+  String? cardUserKey;
+
   group('Create Card Test -', () {
     test('Should create card and user', () async {
       final response = await iyzipay.card.create(
@@ -31,7 +33,9 @@ void main() {
         ),
       );
 
-      print(response?.errorMessage);
+      // print(response?.errorMessage);
+
+      cardUserKey = response?.cardUserKey;
 
       expect(response?.status, IyzipayStatus.success);
       expect(response?.locale, IyzipayLocale.tr);
@@ -47,6 +51,42 @@ void main() {
       expect(response?.email, isNotNull);
       expect(response?.lastFourDigits, isNotNull);
       expect(response?.conversationId, isNotNull);
+
+      expect(response?.errorCode, isNull);
+      expect(response?.errorGroup, isNull);
+      expect(response?.errorMessage, isNull);
+    });
+
+    test('Should create secondary card', () async {
+      final response = await iyzipay.card.create(
+        request: CreateCardRequest(
+          locale: IyzipayLocale.tr.value,
+          conversationId: '123456789',
+          cardUserKey: cardUserKey, // if cardUserKey is null response will return error
+          card: const Card(
+            cardAlias: 'card alias',
+            cardHolderName: 'John Doe',
+            cardNumber: '5528790000000008',
+            expireMonth: '12',
+            expireYear: '2030',
+          ),
+        ),
+      );
+
+      // print(response?.errorMessage);
+
+      expect(response?.status, IyzipayStatus.success);
+      expect(response?.locale, IyzipayLocale.tr);
+      expect(response?.systemTime, isNotNull);
+      expect(response?.cardUserKey, isNotNull);
+      expect(response?.cardToken, isNotNull);
+      expect(response?.cardAlias, isNotNull);
+      expect(response?.binNumber, isNotNull);
+      expect(response?.cardType, isNotNull);
+      expect(response?.cardAssociation, isNotNull);
+      expect(response?.cardFamily, isNotNull);
+      expect(response?.cardBankCode, isNotNull);
+      expect(response?.cardBankName, isNotNull);
 
       expect(response?.errorCode, isNull);
       expect(response?.errorGroup, isNull);
