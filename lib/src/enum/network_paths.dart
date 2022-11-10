@@ -15,6 +15,18 @@ enum NetworkPaths {
   /// endpoint of create card `/cardstorage/cards`
   cardList('/cardstorage/cards'),
 
+  /// endpoint of initialization of bkm `/payment/bkm/initialize`
+  bkmInitialize('/payment/bkm/initialize'),
+
+  /// endpoint of retrieving bkm `/payment/bkm/auth/detail`
+  bkmRetrieve('/payment/bkm/auth/detail'),
+
+  /// endpoint of retrieving basic bkm `/payment/bkm/auth/detail/basic`
+  basicBkmRetrieve('/payment/bkm/auth/detail/basic'),
+
+  /// endpoint of initialization of bkm `/payment/bkm/initialize/basic`
+  basicBkmInitialize('/payment/bkm/initialize/basic'),
+
   /// endpoint of retrieving checkout form `/payment/iyzipos/checkoutform/auth/ecom/detail`
   retrieveCheckoutForm('/payment/iyzipos/checkoutform/auth/ecom/detail'),
 

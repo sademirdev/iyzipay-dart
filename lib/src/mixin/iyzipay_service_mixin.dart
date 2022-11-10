@@ -1,6 +1,7 @@
 import 'package:iyzipay/src/interface/i_iyzipay.dart';
 import 'package:iyzipay/src/operation/approval/service/approval_service.dart';
 import 'package:iyzipay/src/operation/bin-number/service/bin_number_service.dart';
+import 'package:iyzipay/src/operation/bkm/service/bkm_service.dart';
 import 'package:iyzipay/src/operation/cancel/service/cancel_service.dart';
 import 'package:iyzipay/src/operation/card/service/card_service.dart';
 import 'package:iyzipay/src/operation/checkout-form/service/checkout_form_service.dart';
@@ -14,6 +15,9 @@ import 'package:iyzipay/src/operation/refund/service/refund_service.dart';
 mixin IyzipayServiceMixin on IIyzipay {
   ///
   ApprovalService get approval => ApprovalService(dio, options);
+
+  ///
+  BkmService get bkm => BkmService(dio, options);
 
   ///
   CheckoutFormService get checkoutForm => CheckoutFormService(dio, options);
