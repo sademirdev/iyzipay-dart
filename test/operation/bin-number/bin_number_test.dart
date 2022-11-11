@@ -14,25 +14,18 @@ void main() {
     ),
   );
 
-  group('Retrieve Bin Number Test -', () {
-    /// it is taken from [https://dev.iyzipay.com/tr/test-kartlari]
-    const binNumber = '589004';
-    const locale = 'en';
-    const conversationId = '12345';
-    const statusSuccess = 'success';
-
-    test('Should return successful response', () async {
+  group('Bin Number Test -', () {
+    test('retrieve bin number test', () async {
       final response = await iyzipay.binNumber.retrieve(
         request: const RetrieveBinNumberRequest(
-          binNumber: binNumber,
-          locale: locale,
-          conversationId: conversationId,
+          conversationId: '12345',
+          binNumber: '589004',
         ),
       );
 
-      expect(response?.status.toString(), statusSuccess);
-      expect(response?.locale.toString(), locale);
-      expect(response?.conversationId, conversationId);
+      expect(response?.status, IyzipayStatus.success);
+      expect(response?.locale, IyzipayLocale.tr);
+      expect(response?.conversationId, isNotNull);
       expect(response?.systemTime, isNotNull);
 
       expect(response?.bankCode, isNotNull);
@@ -44,6 +37,7 @@ void main() {
       expect(response?.commercial, isNotNull);
 
       expect(response?.errorCode, isNull);
+      expect(response?.errorGroup, isNull);
       expect(response?.errorMessage, isNull);
     });
   });

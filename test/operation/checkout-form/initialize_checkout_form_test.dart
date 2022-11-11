@@ -14,8 +14,8 @@ void main() {
     ),
   );
 
-  group('Initialize Checkout Form Test -', () {
-    test('Should initialize checkout form', () async {
+  group('Checkout Form Test -', () {
+    test('initialize checkout form test', () async {
       final response = await iyzipay.checkoutForm.initialize(
         request: InitializeCheckoutFormRequest(
           locale: IyzipayLocale.tr.value,
