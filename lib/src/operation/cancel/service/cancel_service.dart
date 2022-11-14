@@ -13,7 +13,7 @@ class CancelService extends IyzipayService {
   Future<CreateCancelResponse?> create({
     required CreateCancelRequest request,
   }) async {
-    final result = makeRequest<CreateCancelRequest, CreateCancelResponse>(
+    final result = connect<CreateCancelRequest, CreateCancelResponse>(
       requestModel: request,
       responseModel: const CreateCancelResponse(),
       path: NetworkPaths.cancel.path,

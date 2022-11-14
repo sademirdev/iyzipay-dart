@@ -13,7 +13,7 @@ class RefundService extends IyzipayService {
   Future<CreateRefundResponse?> create({
     required CreateRefundRequest request,
   }) async {
-    final result = makeRequest<CreateRefundRequest, CreateRefundResponse>(
+    final result = connect<CreateRefundRequest, CreateRefundResponse>(
       requestModel: request,
       responseModel: const CreateRefundResponse(),
       path: NetworkPaths.refund.path,

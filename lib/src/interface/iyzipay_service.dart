@@ -8,7 +8,6 @@ import 'package:meta/meta.dart';
 /// {@template iyzipay_service}
 /// An interface that specifies the features of all operations services
 /// {@endtemplate}
-@immutable
 abstract class IyzipayService {
   /// {@macro iyzipay_service}
   const IyzipayService(this.dio, this.options);
@@ -24,7 +23,7 @@ abstract class IyzipayService {
   /// [requestModel] The request data
   /// [path] The endpoint path.
   @internal
-  Future<R?> makeRequest<T extends Request<T>, R extends IResponse<R>>({
+  Future<R?> connect<T extends Request<T>, R extends Response<R>>({
     required T requestModel,
     required R responseModel,
     required String path,

@@ -13,7 +13,7 @@ class DisapproveService extends IyzipayService {
   Future<CreateDisapprovalResponse?> create({
     required CreateDisapprovalRequest request,
   }) async {
-    final result = makeRequest<CreateDisapprovalRequest, CreateDisapprovalResponse>(
+    final result = connect<CreateDisapprovalRequest, CreateDisapprovalResponse>(
       requestModel: request,
       responseModel: const CreateDisapprovalResponse(),
       path: NetworkPaths.disapprove.path,

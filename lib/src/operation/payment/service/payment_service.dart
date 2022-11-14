@@ -15,7 +15,7 @@ class PaymentService extends IyzipayService {
   Future<CreatePaymentResponse?> create({
     required CreatePaymentRequest request,
   }) async {
-    final result = makeRequest<CreatePaymentRequest, CreatePaymentResponse>(
+    final result = connect<CreatePaymentRequest, CreatePaymentResponse>(
       requestModel: request,
       responseModel: const CreatePaymentResponse(),
       path: NetworkPaths.createPayment.path,
@@ -28,7 +28,7 @@ class PaymentService extends IyzipayService {
   Future<RetrievePaymentResponse?> retrieve({
     required RetrievePaymentRequest request,
   }) async {
-    final result = makeRequest<RetrievePaymentRequest, RetrievePaymentResponse>(
+    final result = connect<RetrievePaymentRequest, RetrievePaymentResponse>(
       requestModel: request,
       responseModel: const RetrievePaymentResponse(),
       path: NetworkPaths.retrievePayment.path,

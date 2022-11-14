@@ -13,7 +13,7 @@ class BkmService extends IyzipayService {
   Future<InitializeBkmResponse?> initialize({
     required InitializeBkmRequest request,
   }) async {
-    final result = makeRequest<InitializeBkmRequest, InitializeBkmResponse>(
+    final result = connect<InitializeBkmRequest, InitializeBkmResponse>(
       requestModel: request,
       responseModel: const InitializeBkmResponse(),
       path: NetworkPaths.bkmInitialize.path,

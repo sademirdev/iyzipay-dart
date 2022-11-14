@@ -17,7 +17,7 @@ class CardService extends IyzipayService {
   Future<CreateCardResponse?> create({
     required CreateCardRequest request,
   }) async {
-    final result = makeRequest<CreateCardRequest, CreateCardResponse>(
+    final result = connect<CreateCardRequest, CreateCardResponse>(
       requestModel: request,
       responseModel: const CreateCardResponse(),
       path: NetworkPaths.card.path,
@@ -30,7 +30,7 @@ class CardService extends IyzipayService {
   Future<RetrieveCardsResponse?> retrieve({
     required RetrieveCardsRequest request,
   }) async {
-    final result = makeRequest<RetrieveCardsRequest, RetrieveCardsResponse>(
+    final result = connect<RetrieveCardsRequest, RetrieveCardsResponse>(
       requestModel: request,
       responseModel: const RetrieveCardsResponse(),
       path: NetworkPaths.cardList.path,
@@ -43,7 +43,7 @@ class CardService extends IyzipayService {
   Future<DeleteCardResponse?> delete({
     required DeleteCardRequest request,
   }) async {
-    final result = makeRequest<DeleteCardRequest, DeleteCardResponse>(
+    final result = connect<DeleteCardRequest, DeleteCardResponse>(
       requestModel: request,
       responseModel: const DeleteCardResponse(),
       path: NetworkPaths.card.path,

@@ -13,7 +13,7 @@ class ApprovalService extends IyzipayService {
   Future<CreateApprovalResponse?> create({
     required CreateApprovalRequest request,
   }) async {
-    final result = makeRequest<CreateApprovalRequest, CreateApprovalResponse>(
+    final result = connect<CreateApprovalRequest, CreateApprovalResponse>(
       requestModel: request,
       responseModel: const CreateApprovalResponse(),
       path: NetworkPaths.approve.path,

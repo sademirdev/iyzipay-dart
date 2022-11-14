@@ -15,7 +15,7 @@ class CheckoutFormService extends IyzipayService {
   Future<InitializeCheckoutFormResponse?> initialize({
     required InitializeCheckoutFormRequest request,
   }) async {
-    final result = makeRequest<InitializeCheckoutFormRequest, InitializeCheckoutFormResponse>(
+    final result = connect<InitializeCheckoutFormRequest, InitializeCheckoutFormResponse>(
       requestModel: request,
       responseModel: const InitializeCheckoutFormResponse(),
       path: NetworkPaths.checkoutFormInitialize.path,
@@ -28,7 +28,7 @@ class CheckoutFormService extends IyzipayService {
   Future<RetrieveCheckoutFormResponse?> retrieve({
     required RetrieveCheckoutFormRequest request,
   }) async {
-    final result = makeRequest<RetrieveCheckoutFormRequest, RetrieveCheckoutFormResponse>(
+    final result = connect<RetrieveCheckoutFormRequest, RetrieveCheckoutFormResponse>(
       requestModel: request,
       responseModel: const RetrieveCheckoutFormResponse(),
       path: NetworkPaths.retrieveCheckoutForm.path,
