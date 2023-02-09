@@ -1,4 +1,7 @@
 enum NetworkPaths {
+  createBasicThreedsInitializePreAuth(
+    '/payment/3dsecure/initialize/preauth/basic',
+  ),
   createBasicThreedsInitialize('/payment/3dsecure/initialize/basic'),
   createBasicPaymentPreAuth('/payment/preauth/basic'),
   createBasicPaymentPostAuth('/payment/postauth/basic'),
