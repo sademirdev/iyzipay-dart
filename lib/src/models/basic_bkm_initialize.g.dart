@@ -8,12 +8,20 @@ part of 'basic_bkm_initialize.dart';
 
 BasicBkmInitialize _$BasicBkmInitializeFromJson(Map<String, dynamic> json) =>
     BasicBkmInitialize(
-      htmlContent: json['htmlContent'] as String,
-      token: json['token'] as String,
+      htmlContent: json['htmlContent'] as String?,
+      token: json['token'] as String?,
     );
 
-Map<String, dynamic> _$BasicBkmInitializeToJson(BasicBkmInitialize instance) =>
-    <String, dynamic>{
-      'htmlContent': instance.htmlContent,
-      'token': instance.token,
-    };
+Map<String, dynamic> _$BasicBkmInitializeToJson(BasicBkmInitialize instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('htmlContent', instance.htmlContent);
+  writeNotNull('token', instance.token);
+  return val;
+}

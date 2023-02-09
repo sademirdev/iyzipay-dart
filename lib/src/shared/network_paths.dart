@@ -1,4 +1,5 @@
 enum NetworkPaths {
+  createBasicPayment('/payment/auth/basic'),
   createBasicBkmInitialize('/payment/bkm/initialize/basic'),
   retrieveBasicBkm('/payment/bkm/auth/detail/basic'),
   createApproval('/payment/iyzipos/item/approve'),
