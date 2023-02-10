@@ -1,4 +1,5 @@
 enum NetworkPaths {
+  createBkmInitialize('/payment/bkm/initialize'),
   retrieveBkm('/payment/bkm/auth/detail'),
   retrieveBinNumber('/payment/bin/check'),
   createBasicThreedsPayment('/payment/3dsecure/auth/basic'),
