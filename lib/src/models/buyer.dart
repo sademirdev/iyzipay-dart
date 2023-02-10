@@ -68,9 +68,9 @@ class Buyer {
   /// The IP address of the recipient on the merchant side.
   final String ip;
 
-  /// Converts [Map] to [Buyer]
+  /// Converts [JsonMap] to [Buyer]
   Buyer fromJson(JsonMap json) => _$BuyerFromJson(json);
 
-  /// Converts [Buyer] to [Map]
-  Map<String, dynamic> toJson() => _$BuyerToJson(this);
+  /// Converts [Buyer] to [JsonMap]
+  JsonMap toJson() => _$BuyerToJson(this);
 }
