@@ -1,4 +1,5 @@
 enum NetworkPaths {
+  createOrDeleteCard('/cardstorage/card'),
   createCancel('/payment/cancel'),
   retrieveBouncedBankTransferList('/reporting/settlement/bounced'),
   createBkmInitialize('/payment/bkm/initialize'),

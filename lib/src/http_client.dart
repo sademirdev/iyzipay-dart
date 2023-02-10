@@ -36,6 +36,26 @@ class HttpClient {
       throw ServerException(message: e.runtimeType.toString());
     }
   }
+
+  static Future<T?>
+      delete<T extends IyzipayResource, R extends BaseRequest<R>>({
+    required String url,
+    required Map<String, String> headers,
+    required R request,
+    required T responseModel,
+  }) async {
+    try {
+      final resp = await http.delete(
+        Uri.parse(url),
+        headers: headers,
+        body: request,
+      );
+      final json = jsonDecode(resp.body) as Map<String, dynamic>;
+      return responseModel.fromJson(json) as T;
+    } catch (e) {
+      throw ServerException(message: e.runtimeType.toString());
+    }
+  }
 }
 
 class ServerException implements Exception {
