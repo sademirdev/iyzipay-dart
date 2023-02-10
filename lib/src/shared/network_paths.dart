@@ -1,4 +1,5 @@
 enum NetworkPaths {
+  createCardManagementPageInitialize('/v1/card-management/pages'),
   retrieveCardList('/cardstorage/cards'),
   retrieveCardBlackList('/cardstorage/blacklist/card/retrieve'),
   updateCardBlackList('/cardstorage/blacklist/card/inactive'),
