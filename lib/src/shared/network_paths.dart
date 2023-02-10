@@ -1,4 +1,7 @@
 enum NetworkPaths {
+  retrieveCardBlackList('/cardstorage/blacklist/card/retrieve'),
+  updateCardBlackList('/cardstorage/blacklist/card/inactive'),
+  createCardBlackList('/cardstorage/blacklist/card'),
   createOrDeleteCard('/cardstorage/card'),
   createCancel('/payment/cancel'),
   retrieveBouncedBankTransferList('/reporting/settlement/bounced'),
