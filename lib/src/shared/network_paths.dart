@@ -1,4 +1,5 @@
 enum NetworkPaths {
+  retrieveCardList('/cardstorage/cards'),
   retrieveCardBlackList('/cardstorage/blacklist/card/retrieve'),
   updateCardBlackList('/cardstorage/blacklist/card/inactive'),
   createCardBlackList('/cardstorage/blacklist/card'),
