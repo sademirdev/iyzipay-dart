@@ -8,9 +8,13 @@ class HttpClient {
   static Future<T?> get<T extends IyzipayResource>({
     required String url,
     required T responseModel,
+    Map<String, String>? headers,
   }) async {
     try {
-      final resp = await http.get(Uri.parse(url));
+      final resp = await http.get(
+        Uri.parse(url),
+        headers: headers,
+      );
       final json = jsonDecode(resp.body) as Map<String, dynamic>;
       return responseModel.fromJson(json) as T;
     } catch (e) {
