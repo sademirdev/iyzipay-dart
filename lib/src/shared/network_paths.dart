@@ -1,4 +1,7 @@
 enum NetworkPaths {
+  createCheckoutFormInitializePreAuth(
+    '/payment/iyzipos/checkoutform/initialize/preauth/ecom',
+  ),
   createCheckoutFormInitialize(
     '/payment/iyzipos/checkoutform/initialize/auth/ecom',
   ),
