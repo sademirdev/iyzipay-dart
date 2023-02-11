@@ -1,4 +1,5 @@
 enum NetworkPaths {
+  retrieveCheckoutForm('/payment/iyzipos/checkoutform/auth/ecom/detail'),
   createCardManagementPageInitialize('/v1/card-management/pages'),
   retrieveCardList('/cardstorage/cards'),
   retrieveCardBlackList('/cardstorage/blacklist/card/retrieve'),
