@@ -1,4 +1,5 @@
 enum NetworkPaths {
+  createCrossBookingFromSubMerchant('/crossbooking/receive'),
   createCheckoutFormInitializePreAuth(
     '/payment/iyzipos/checkoutform/initialize/preauth/ecom',
   ),
