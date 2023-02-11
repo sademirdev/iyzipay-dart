@@ -1,4 +1,5 @@
 enum NetworkPaths {
+  retrieveIyziupForm('/v1/iyziup/form/order/retrieve'),
   retrieveInstallmentInfo('/payment/iyzipos/installment'),
   createDisapproval('/payment/iyzipos/item/disapprove'),
   crateCrossBookingToSubMerchant('/crossbooking/send'),
