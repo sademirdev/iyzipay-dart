@@ -74,7 +74,7 @@ class PaymentResource extends IyzipayResource {
   final int? mdStatus;
 
   @override
-  IyzipayResource fromJson(JsonMap json) => _$PaymentResourceFromJson(json);
+  PaymentResource fromJson(JsonMap json) => _$PaymentResourceFromJson(json);
 
   @override
   JsonMap toJson() => _$PaymentResourceToJson(this);

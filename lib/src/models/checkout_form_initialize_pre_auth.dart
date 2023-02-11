@@ -1,8 +1,8 @@
 import 'package:iyzipay/iyzipay.dart';
 import 'package:iyzipay/src/http_client.dart';
 import 'package:iyzipay/src/iyzipay_resource.dart';
-import 'package:iyzipay/src/models/checkout_form_initialize_resource.dart';
 import 'package:iyzipay/src/requests/create_checkout_form_initialize_request.dart';
+import 'package:iyzipay/src/resources/checkout_form_initialize_resource.dart';
 import 'package:iyzipay/src/shared/network_paths.dart';
 
 class CheckoutFormInitializePreAuth extends CheckoutFormInitializeResource {
