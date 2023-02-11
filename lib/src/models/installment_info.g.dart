@@ -1,23 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'disapproval.dart';
+part of 'installment_info.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Disapproval _$DisapprovalFromJson(Map<String, dynamic> json) => Disapproval(
+InstallmentInfo _$InstallmentInfoFromJson(Map<String, dynamic> json) =>
+    InstallmentInfo(
       status: $enumDecodeNullable(_$IyzipayStatusEnumMap, json['status']),
       locale: $enumDecodeNullable(_$IyzipayLocaleEnumMap, json['locale']),
       systemTime: json['systemTime'] as int?,
       conversationId: json['conversationId'] as String?,
-      paymentTransactionId: json['paymentTransactionId'] as String?,
+      installmentDetails: (json['installmentDetails'] as List<dynamic>?)
+          ?.map((e) => InstallmentDetail.fromJson(e as Map<String, dynamic>))
+          .toList(),
       errorCode: json['errorCode'] as String?,
       errorMessage: json['errorMessage'] as String?,
       errorGroup: json['errorGroup'] as String?,
     );
 
-Map<String, dynamic> _$DisapprovalToJson(Disapproval instance) {
+Map<String, dynamic> _$InstallmentInfoToJson(InstallmentInfo instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -33,7 +36,7 @@ Map<String, dynamic> _$DisapprovalToJson(Disapproval instance) {
   writeNotNull('errorCode', instance.errorCode);
   writeNotNull('errorMessage', instance.errorMessage);
   writeNotNull('errorGroup', instance.errorGroup);
-  writeNotNull('paymentTransactionId', instance.paymentTransactionId);
+  writeNotNull('installmentDetails', instance.installmentDetails);
   return val;
 }
 
