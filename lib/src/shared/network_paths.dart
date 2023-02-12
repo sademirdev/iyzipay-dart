@@ -1,4 +1,6 @@
 enum NetworkPaths {
+  retrievePaymentPreAuth('/payment/detail'),
+  createPaymentPreAuth('/payment/preauth'),
   createPaymentPostAuth('/payment/postauth'),
   retrievePayment('/payment/detail'),
   createPayment('/payment/auth'),
