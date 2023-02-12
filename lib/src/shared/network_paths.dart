@@ -1,4 +1,7 @@
 enum NetworkPaths {
+  retrievePayoutCompletedTransactionList(
+    '/reporting/settlement/payoutcompleted',
+  ),
   retrievePaymentPreAuth('/payment/detail'),
   createPaymentPreAuth('/payment/preauth'),
   createPaymentPostAuth('/payment/postauth'),
