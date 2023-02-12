@@ -9,6 +9,10 @@ part 'payment_resource.g.dart';
 @JsonSerializable(includeIfNull: false)
 class PaymentResource extends IyzipayResource {
   const PaymentResource({
+    super.status,
+    super.locale,
+    super.systemTime,
+    super.conversationId,
     this.price,
     this.paidPrice,
     this.currency,
@@ -39,6 +43,9 @@ class PaymentResource extends IyzipayResource {
     this.bankName,
     this.referenceCode,
     this.mdStatus,
+    super.errorCode,
+    super.errorMessage,
+    super.errorGroup,
   });
 
   final double? price;

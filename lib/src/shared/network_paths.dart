@@ -1,4 +1,5 @@
 enum NetworkPaths {
+  retrievePayWithIyzico('/payment/iyzipos/checkoutform/auth/ecom/detail'),
   createPayWithIyzicoInitialize('/payment/pay-with-iyzico/initialize'),
   retrieveIyziupForm('/v1/iyziup/form/order/retrieve'),
   retrieveInstallmentInfo('/payment/iyzipos/installment'),

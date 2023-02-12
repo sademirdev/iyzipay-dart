@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'payment_resource.dart';
+part of 'pay_with_iyzico.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-PaymentResource _$PaymentResourceFromJson(Map<String, dynamic> json) =>
-    PaymentResource(
+PayWithIyzico _$PayWithIyzicoFromJson(Map<String, dynamic> json) =>
+    PayWithIyzico(
       status: $enumDecodeNullable(_$IyzipayStatusEnumMap, json['status']),
       locale: $enumDecodeNullable(_$IyzipayLocaleEnumMap, json['locale']),
       systemTime: json['systemTime'] as int?,
@@ -47,12 +47,14 @@ PaymentResource _$PaymentResourceFromJson(Map<String, dynamic> json) =>
       bankName: json['bankName'] as String?,
       referenceCode: json['referenceCode'] as String?,
       mdStatus: json['mdStatus'] as int?,
+      token: json['token'] as String?,
+      callbackUrl: json['callbackUrl'] as String?,
       errorCode: json['errorCode'] as String?,
       errorMessage: json['errorMessage'] as String?,
       errorGroup: json['errorGroup'] as String?,
     );
 
-Map<String, dynamic> _$PaymentResourceToJson(PaymentResource instance) {
+Map<String, dynamic> _$PayWithIyzicoToJson(PayWithIyzico instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -99,6 +101,8 @@ Map<String, dynamic> _$PaymentResourceToJson(PaymentResource instance) {
   writeNotNull('bankName', instance.bankName);
   writeNotNull('referenceCode', instance.referenceCode);
   writeNotNull('mdStatus', instance.mdStatus);
+  writeNotNull('token', instance.token);
+  writeNotNull('callbackUrl', instance.callbackUrl);
   return val;
 }
 
