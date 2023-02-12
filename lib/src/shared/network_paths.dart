@@ -1,4 +1,6 @@
 enum NetworkPaths {
+  createAmountBasedRefundRequest('/v2/payment/refund'),
+  createRefund('/payment/refund'),
   retrievePayoutCompletedTransactionList(
     '/reporting/settlement/payoutcompleted',
   ),
