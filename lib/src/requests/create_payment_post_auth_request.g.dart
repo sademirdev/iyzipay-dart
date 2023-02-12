@@ -14,7 +14,7 @@ CreatePaymentPostAuthRequest _$CreatePaymentPostAuthRequestFromJson(
       paymentId: json['paymentId'] as String,
       paidPrice: (json['paidPrice'] as num).toDouble(),
       ip: json['ip'] as String,
-      currency: json['currency'] as String,
+      currency: $enumDecode(_$CurrencyEnumMap, json['currency']),
     );
 
 Map<String, dynamic> _$CreatePaymentPostAuthRequestToJson(
@@ -32,11 +32,22 @@ Map<String, dynamic> _$CreatePaymentPostAuthRequestToJson(
   val['paymentId'] = instance.paymentId;
   val['paidPrice'] = instance.paidPrice;
   val['ip'] = instance.ip;
-  val['currency'] = instance.currency;
+  val['currency'] = _$CurrencyEnumMap[instance.currency]!;
   return val;
 }
 
 const _$IyzipayLocaleEnumMap = {
   IyzipayLocale.tr: 'tr',
   IyzipayLocale.en: 'en',
+};
+
+const _$CurrencyEnumMap = {
+  Currency.TRY: 'TRY',
+  Currency.EUR: 'EUR',
+  Currency.USD: 'USD',
+  Currency.IRR: 'IRR',
+  Currency.GBP: 'GBP',
+  Currency.NOK: 'NOK',
+  Currency.RUB: 'RUB',
+  Currency.CHF: 'CHF',
 };

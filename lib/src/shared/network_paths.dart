@@ -1,4 +1,5 @@
 enum NetworkPaths {
+  createPaymentPostAuth('/payment/postauth'),
   retrievePayment('/payment/detail'),
   createPayment('/payment/auth'),
   retrievePayWithIyzico('/payment/iyzipos/checkoutform/auth/ecom/detail'),

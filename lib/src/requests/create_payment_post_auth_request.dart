@@ -1,3 +1,4 @@
+import 'package:iyzipay/iyzipay.dart';
 import 'package:iyzipay/src/base_request.dart';
 import 'package:iyzipay/src/json_convertible.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -19,7 +20,7 @@ class CreatePaymentPostAuthRequest
   final String paymentId;
   final double paidPrice;
   final String ip;
-  final String currency;
+  final Currency currency;
 
   @override
   CreatePaymentPostAuthRequest fromJson(JsonMap json) =>
