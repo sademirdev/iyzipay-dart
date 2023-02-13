@@ -1,4 +1,7 @@
 enum NetworkPaths {
+  retrieveSubMerchant('/onboarding/submerchant/detail'),
+  updateSubMerchant('/onboarding/submerchant'),
+  createSubMerchant('/onboarding/submerchant'),
   createRefundChargedFromMerchant('/payment/iyzipos/refund/merchant/charge'),
   createAmountBasedRefundRequest('/v2/payment/refund'),
   createRefund('/payment/refund'),

@@ -16,6 +16,7 @@ RefundChargedFromMerchant _$RefundChargedFromMerchantFromJson(
       paymentId: json['paymentId'] as String?,
       paymentTransactionId: json['paymentTransactionId'] as String?,
       price: (json['price'] as num?)?.toDouble(),
+      authCode: (json['authCode'] as num?)?.toDouble(),
       hostReference: json['hostReference'] as String?,
       errorCode: json['errorCode'] as String?,
       errorMessage: json['errorMessage'] as String?,
@@ -42,6 +43,7 @@ Map<String, dynamic> _$RefundChargedFromMerchantToJson(
   writeNotNull('paymentId', instance.paymentId);
   writeNotNull('paymentTransactionId', instance.paymentTransactionId);
   writeNotNull('price', instance.price);
+  writeNotNull('authCode', instance.authCode);
   writeNotNull('hostReference', instance.hostReference);
   return val;
 }

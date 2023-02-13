@@ -41,6 +41,25 @@ class HttpClient {
     }
   }
 
+  static Future<T?> put<T extends IyzipayResource, R extends BaseRequest<R>>({
+    required String url,
+    required Map<String, String> headers,
+    required R request,
+    required T responseModel,
+  }) async {
+    try {
+      final resp = await http.put(
+        Uri.parse(url),
+        headers: headers,
+        body: request,
+      );
+      final json = jsonDecode(resp.body) as Map<String, dynamic>;
+      return responseModel.fromJson(json) as T;
+    } catch (e) {
+      throw ServerException(message: e.runtimeType.toString());
+    }
+  }
+
   static Future<T?>
       delete<T extends IyzipayResource, R extends BaseRequest<R>>({
     required String url,
