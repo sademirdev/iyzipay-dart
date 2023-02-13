@@ -1,4 +1,6 @@
 enum NetworkPaths {
+  retrieveThreedsPayment('/payment/detail'),
+  createThreedsPayment('/payment/3dsecure/auth'),
   createThreedsInitializePreAuth('/payment/3dsecure/initialize/preauth'),
   createThreedsInitialize('/payment/3dsecure/initialize'),
   retrieveSubMerchant('/onboarding/submerchant/detail'),
