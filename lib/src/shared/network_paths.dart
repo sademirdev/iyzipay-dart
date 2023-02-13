@@ -1,4 +1,5 @@
 enum NetworkPaths {
+  createRefundChargedFromMerchant('/payment/iyzipos/refund/merchant/charge'),
   createAmountBasedRefundRequest('/v2/payment/refund'),
   createRefund('/payment/refund'),
   retrievePayoutCompletedTransactionList(
