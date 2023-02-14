@@ -1,22 +1,22 @@
 import 'package:iyzipay/src/base_request.dart';
+import 'package:iyzipay/src/json_convertible.dart';
+import 'package:json_annotation/json_annotation.dart';
 
+part 'paging_request.g.dart';
+
+@JsonSerializable(includeIfNull: false)
 class PagingRequest extends BaseRequest<PagingRequest> {
   const PagingRequest({
     required this.page,
     required this.count,
   });
 
-  final int page;
-  final int count;
-
-  // Todo(sametdmr): handle fromJson and toJson functions
-  @override
-  PagingRequest fromJson(Map<String, dynamic> json) {
-    throw UnimplementedError();
-  }
+  final int? page;
+  final int? count;
 
   @override
-  Map<String, dynamic> toJson() {
-    throw UnimplementedError();
-  }
+  PagingRequest fromJson(JsonMap json) => _$PagingRequestFromJson(json);
+
+  @override
+  JsonMap toJson() => _$PagingRequestToJson(this);
 }

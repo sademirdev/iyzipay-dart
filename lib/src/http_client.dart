@@ -64,7 +64,7 @@ class HttpClient {
       delete<T extends IyzipayResource, R extends BaseRequest<R>>({
     required String url,
     required Map<String, String> headers,
-    required R request,
+    required R? request,
     required T responseModel,
   }) async {
     try {

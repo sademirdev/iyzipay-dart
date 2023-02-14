@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'address.g.dart';
 
 @JsonSerializable(includeIfNull: false)
-class Address {
+class Address with JsonConvertible<Address> {
   const Address({
     required this.address,
     this.zipCode,
@@ -73,8 +73,10 @@ class Address {
   final String country;
 
   /// Converts [Map] to [Address]
+  @override
   Address fromJson(JsonMap json) => _$AddressFromJson(json);
 
   /// Converts [Address] to [Map]
+  @override
   Map<String, dynamic> toJson() => _$AddressToJson(this);
 }

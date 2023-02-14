@@ -62,6 +62,8 @@ class IyzipayResource with JsonConvertible<IyzipayResource> {
   static const _v2 = '/v2/';
 
   /// Generates HTTP Header for api version 1 and 2
+
+  // TODO(sametdmr): handle nullable body and take request instead
   static Map<String, String> generateHttpHeader({
     required Options options,
     required Map<String, dynamic> body,
