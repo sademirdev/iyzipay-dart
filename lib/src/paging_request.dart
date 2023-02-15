@@ -11,7 +11,9 @@ class PagingRequest extends BaseRequest<PagingRequest> {
     required this.count,
   });
 
+  @JsonKey(includeFromJson: true, includeToJson: false)
   final int? page;
+  @JsonKey(includeFromJson: true, includeToJson: false)
   final int? count;
 
   @override

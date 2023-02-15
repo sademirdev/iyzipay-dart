@@ -1,4 +1,4 @@
-import 'package:iyzipay/iyzipay.dart';
+import 'package:iyzipay/src/enums/enums.dart';
 import 'package:iyzipay/src/enums/iyzi_link_status.dart';
 import 'package:iyzipay/src/json_convertible.dart';
 import 'package:json_annotation/json_annotation.dart';

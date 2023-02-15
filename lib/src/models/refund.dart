@@ -1,7 +1,8 @@
-import 'package:iyzipay/iyzipay.dart';
+import 'package:iyzipay/src/enums/enums.dart';
 import 'package:iyzipay/src/http_client.dart';
 import 'package:iyzipay/src/iyzipay_resource.dart';
 import 'package:iyzipay/src/json_convertible.dart';
+import 'package:iyzipay/src/options.dart';
 import 'package:iyzipay/src/requests/create_amount_based_refund_request.dart';
 import 'package:iyzipay/src/requests/create_refund_request.dart';
 import 'package:iyzipay/src/shared/network_paths.dart';

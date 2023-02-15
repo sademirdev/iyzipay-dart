@@ -5,7 +5,7 @@ import 'options.dart';
 
 void main() {
   test(
-    'test api',
+    'should test api',
     () async {
       final result = await ApiTest.retrieve(sandboxOptions);
 

@@ -1,7 +1,9 @@
 import 'package:iyzipay/src/base_request.dart';
 import 'package:iyzipay/src/enums/enums.dart';
 import 'package:iyzipay/src/json_convertible.dart';
-import 'package:iyzipay/src/models/models.dart';
+import 'package:iyzipay/src/models/address.dart';
+import 'package:iyzipay/src/models/basket_item.dart';
+import 'package:iyzipay/src/models/buyer.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'create_checkout_form_initialize_request.g.dart';

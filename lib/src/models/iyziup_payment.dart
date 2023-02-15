@@ -1,5 +1,6 @@
-import 'package:iyzipay/iyzipay.dart';
+import 'package:iyzipay/src/enums/enums.dart';
 import 'package:iyzipay/src/json_convertible.dart';
+import 'package:iyzipay/src/models/payment_item.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'iyziup_payment.g.dart';

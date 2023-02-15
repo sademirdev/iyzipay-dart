@@ -1,7 +1,8 @@
-import 'package:iyzipay/iyzipay.dart';
+import 'package:iyzipay/src/enums/enums.dart';
 import 'package:iyzipay/src/http_client.dart';
 import 'package:iyzipay/src/iyzipay_resource.dart';
 import 'package:iyzipay/src/json_convertible.dart';
+import 'package:iyzipay/src/options.dart';
 import 'package:iyzipay/src/requests/create_sub_merchant_request.dart';
 import 'package:iyzipay/src/requests/retrieve_sub_merchant_request.dart';
 import 'package:iyzipay/src/requests/update_sub_merchant_request.dart';

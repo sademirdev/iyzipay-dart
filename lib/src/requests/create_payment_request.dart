@@ -1,7 +1,9 @@
-import 'package:iyzipay/iyzipay.dart';
 import 'package:iyzipay/src/base_request.dart';
 import 'package:iyzipay/src/constants.dart';
 import 'package:iyzipay/src/json_convertible.dart';
+import 'package:iyzipay/src/models/address.dart';
+import 'package:iyzipay/src/models/basket_item.dart';
+import 'package:iyzipay/src/models/buyer.dart';
 import 'package:iyzipay/src/models/loyalty.dart';
 import 'package:iyzipay/src/models/payment_card.dart';
 import 'package:json_annotation/json_annotation.dart';

@@ -1,5 +1,5 @@
 import 'package:iyzipay/src/iyzipay_resource.dart';
-import 'package:iyzipay/src/models/models.dart';
+import 'package:iyzipay/src/models/converted_payout.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'payment_item.g.dart';

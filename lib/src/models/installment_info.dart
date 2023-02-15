@@ -1,8 +1,8 @@
-import 'package:iyzipay/iyzipay.dart';
 import 'package:iyzipay/src/http_client.dart';
 import 'package:iyzipay/src/iyzipay_resource.dart';
 import 'package:iyzipay/src/json_convertible.dart';
 import 'package:iyzipay/src/models/installment_detail.dart';
+import 'package:iyzipay/src/options.dart';
 import 'package:iyzipay/src/requests/retrieve_installment_info_request.dart';
 import 'package:iyzipay/src/shared/network_paths.dart';
 import 'package:json_annotation/json_annotation.dart';
