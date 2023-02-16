@@ -13,12 +13,12 @@ class PaymentCard with JsonConvertible<PaymentCard> {
     required this.cvc,
     this.registerCard,
     required this.cardAlias,
-    required this.cardToken,
-    required this.cardUserKey,
-    required this.metadata,
-    required this.consumerToken,
-    required this.registerConsumerCard,
-    required this.ucsToken,
+    this.cardToken,
+    this.cardUserKey,
+    this.metadata,
+    this.consumerToken,
+    this.registerConsumerCard,
+    this.ucsToken,
   });
 
   final String cardHolderName;
@@ -28,12 +28,12 @@ class PaymentCard with JsonConvertible<PaymentCard> {
   final String cvc;
   final int? registerCard;
   final String cardAlias;
-  final String cardToken;
-  final String cardUserKey;
-  final Map<String, String> metadata;
-  final String consumerToken;
-  final bool registerConsumerCard;
-  final String ucsToken;
+  final String? cardToken;
+  final String? cardUserKey;
+  final Map<String, String>? metadata;
+  final String? consumerToken;
+  final bool? registerConsumerCard;
+  final String? ucsToken;
 
   @override
   PaymentCard fromJson(JsonMap json) => _$PaymentCardFromJson(json);

@@ -1,3 +1,4 @@
+import 'package:iyzipay/iyzipay.dart';
 import 'package:iyzipay/src/base_request.dart';
 import 'package:iyzipay/src/constants.dart';
 import 'package:iyzipay/src/json_convertible.dart';
@@ -32,27 +33,27 @@ class CreatePaymentRequest extends BaseRequest<CreatePaymentRequest> {
     required this.connectorName,
     required this.callbackUrl,
     required this.gsmNumber,
-    required this.reward,
+    this.reward,
   });
 
   final double price;
   final double paidPrice;
   final int? installment;
-  final String paymentChannel;
+  final PaymentChannel paymentChannel;
   final String basketId;
-  final String paymentGroup;
+  final PaymentGroup paymentGroup;
   final PaymentCard paymentCard;
   final Buyer buyer;
   final Address shippingAddress;
   final Address billingAddress;
   final List<BasketItem> basketItems;
   final String paymentSource;
-  final String currency;
+  final Currency currency;
   final String posOrderId;
   final String connectorName;
   final String callbackUrl;
   final String gsmNumber;
-  final Loyalty reward;
+  final Loyalty? reward;
 
   @override
   CreatePaymentRequest fromJson(JsonMap json) =>

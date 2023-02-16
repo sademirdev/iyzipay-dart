@@ -29,10 +29,10 @@ class CreateCheckoutFormInitializeRequest
     required this.cardUserKey,
     required this.posOrderId,
     required this.enabledInstallments,
-    required this.debitCardAllowed,
-    required this.paymentWithNewCardEnabled,
-    required this.subscriptionPaymentEnabled,
-    required this.payWithIyzico,
+    this.debitCardAllowed,
+    this.paymentWithNewCardEnabled,
+    this.subscriptionPaymentEnabled,
+    this.payWithIyzico,
   });
 
   final double price;
@@ -50,10 +50,10 @@ class CreateCheckoutFormInitializeRequest
   final String cardUserKey;
   final String posOrderId;
   final List<int> enabledInstallments;
-  final bool debitCardAllowed;
-  final bool paymentWithNewCardEnabled;
-  final bool subscriptionPaymentEnabled;
-  final bool payWithIyzico;
+  final bool? debitCardAllowed;
+  final bool? paymentWithNewCardEnabled;
+  final bool? subscriptionPaymentEnabled;
+  final bool? payWithIyzico;
 
   @override
   CreateCheckoutFormInitializeRequest fromJson(JsonMap json) =>

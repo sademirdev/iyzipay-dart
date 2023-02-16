@@ -1,3 +1,4 @@
+import 'package:iyzipay/src/enums/order_item_type.dart';
 import 'package:iyzipay/src/json_convertible.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -21,7 +22,7 @@ class OrderItem with JsonConvertible<OrderItem> {
   final String name;
   final String category1;
   final String? category2;
-  final String itemType;
+  final OrderItemType itemType;
   final String itemUrl;
   final String itemDescription;
 

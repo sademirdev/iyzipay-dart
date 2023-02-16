@@ -12,14 +12,14 @@ class CreateCancelRequest extends BaseRequest<CreateCancelRequest> {
     super.conversationId,
     required this.paymentId,
     required this.ip,
-    required this.reason,
-    required this.description,
+    this.reason,
+    this.description,
   });
 
   final String paymentId;
   final String ip;
-  final RefundReason reason;
-  final String description;
+  final RefundReason? reason;
+  final String? description;
 
   @override
   CreateCancelRequest fromJson(JsonMap json) =>

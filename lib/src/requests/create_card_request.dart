@@ -8,6 +8,8 @@ part 'create_card_request.g.dart';
 @JsonSerializable(includeIfNull: false)
 class CreateCardRequest extends BaseRequest<CreateCardRequest> {
   const CreateCardRequest({
+    required super.locale,
+    required super.conversationId,
     required this.externalId,
     required this.email,
     required this.cardUserKey,

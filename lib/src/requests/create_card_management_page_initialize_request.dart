@@ -14,7 +14,7 @@ class CreateCardManagementPageInitializeRequest
     required this.validateNewCard,
     required this.externalId,
     required this.email,
-    required this.cardUserKey,
+    this.cardUserKey,
     required this.callbackUrl,
     required this.debitCardAllowed,
   });
@@ -23,7 +23,7 @@ class CreateCardManagementPageInitializeRequest
   final bool validateNewCard;
   final String externalId;
   final String email;
-  final String cardUserKey;
+  final String? cardUserKey;
   final String callbackUrl;
   final bool debitCardAllowed;
 

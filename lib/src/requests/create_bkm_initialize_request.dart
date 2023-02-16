@@ -12,6 +12,8 @@ part 'create_bkm_initialize_request.g.dart';
 class CreateBkmInitializeRequest
     extends BaseRequest<CreateBkmInitializeRequest> {
   const CreateBkmInitializeRequest({
+    super.locale,
+    super.conversationId,
     required this.price,
     required this.basketId,
     required this.paymentGroup,
@@ -21,21 +23,21 @@ class CreateBkmInitializeRequest
     required this.basketItems,
     required this.callbackUrl,
     required this.paymentSource,
-    required this.currency,
-    required this.enabledInstallments,
+    this.currency,
+    this.enabledInstallments,
   });
 
   final double price;
   final String basketId;
-  final String paymentGroup;
+  final PaymentGroup paymentGroup;
   final Buyer buyer;
   final Address shippingAddress;
   final Address billingAddress;
   final List<BasketItem> basketItems;
   final String callbackUrl;
   final String paymentSource;
-  final Currency currency;
-  final List<int> enabledInstallments;
+  final Currency? currency;
+  final List<int>? enabledInstallments;
 
   @override
   CreateBkmInitializeRequest fromJson(JsonMap json) =>

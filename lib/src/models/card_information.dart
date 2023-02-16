@@ -11,7 +11,7 @@ class CardInformation with JsonConvertible<CardInformation> {
     required this.expireYear,
     required this.expireMonth,
     required this.cardHolderName,
-    required this.metadata,
+    this.metadata,
   });
 
   final String cardAlias;
@@ -19,7 +19,7 @@ class CardInformation with JsonConvertible<CardInformation> {
   final String expireYear;
   final String expireMonth;
   final String cardHolderName;
-  final Map<String, String> metadata;
+  final Map<String, String>? metadata;
 
   @override
   CardInformation fromJson(JsonMap json) => _$CardInformationFromJson(json);

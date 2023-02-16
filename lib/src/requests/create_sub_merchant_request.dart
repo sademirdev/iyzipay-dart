@@ -1,5 +1,6 @@
 import 'package:iyzipay/src/base_request.dart';
 import 'package:iyzipay/src/enums/enums.dart';
+import 'package:iyzipay/src/enums/sub_merchant_type.dart';
 import 'package:iyzipay/src/json_convertible.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -15,16 +16,16 @@ class CreateSubMerchantRequest extends BaseRequest<CreateSubMerchantRequest> {
     required this.gsmNumber,
     required this.address,
     required this.iban,
-    required this.taxOffice,
-    required this.contactName,
-    required this.contactSurname,
-    required this.legalCompanyTitle,
-    required this.swiftCode,
+    this.taxOffice,
+    this.contactName,
+    this.contactSurname,
+    this.legalCompanyTitle,
+    this.swiftCode,
     required this.currency,
-    required this.identityNumber,
-    required this.taxNumber,
-    required this.subMerchantExternalId,
-    required this.subMerchantType,
+    this.identityNumber,
+    this.taxNumber,
+    this.subMerchantExternalId,
+    this.subMerchantType,
     this.settlementDescriptionTemplate,
   });
 
@@ -33,16 +34,16 @@ class CreateSubMerchantRequest extends BaseRequest<CreateSubMerchantRequest> {
   final String gsmNumber;
   final String address;
   final String iban;
-  final String taxOffice;
-  final String contactName;
-  final String contactSurname;
-  final String legalCompanyTitle;
-  final String swiftCode;
+  final String? taxOffice;
+  final String? contactName;
+  final String? contactSurname;
+  final String? legalCompanyTitle;
+  final String? swiftCode;
   final Currency currency;
-  final String identityNumber;
-  final String taxNumber;
-  final String subMerchantExternalId;
-  final String subMerchantType;
+  final String? identityNumber;
+  final String? taxNumber;
+  final String? subMerchantExternalId;
+  final SubMerchantType? subMerchantType;
   final String? settlementDescriptionTemplate;
 
   @override
