@@ -13,15 +13,26 @@ CardInformation _$CardInformationFromJson(Map<String, dynamic> json) =>
       expireYear: json['expireYear'] as String,
       expireMonth: json['expireMonth'] as String,
       cardHolderName: json['cardHolderName'] as String,
-      metadata: Map<String, String>.from(json['metadata'] as Map),
+      metadata: (json['metadata'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as String),
+      ),
     );
 
-Map<String, dynamic> _$CardInformationToJson(CardInformation instance) =>
-    <String, dynamic>{
-      'cardAlias': instance.cardAlias,
-      'cardNumber': instance.cardNumber,
-      'expireYear': instance.expireYear,
-      'expireMonth': instance.expireMonth,
-      'cardHolderName': instance.cardHolderName,
-      'metadata': instance.metadata,
-    };
+Map<String, dynamic> _$CardInformationToJson(CardInformation instance) {
+  final val = <String, dynamic>{
+    'cardAlias': instance.cardAlias,
+    'cardNumber': instance.cardNumber,
+    'expireYear': instance.expireYear,
+    'expireMonth': instance.expireMonth,
+    'cardHolderName': instance.cardHolderName,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('metadata', instance.metadata);
+  return val;
+}

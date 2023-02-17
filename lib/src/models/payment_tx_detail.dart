@@ -32,7 +32,7 @@ class PaymentTxDetail with JsonConvertible<PaymentTxDetail> {
 
   final String itemId;
   final int paymentTransactionId;
-  final int transactionStatus;
+  final int? transactionStatus;
   final double price;
   final double paidPrice;
   final double merchantCommissionRate;

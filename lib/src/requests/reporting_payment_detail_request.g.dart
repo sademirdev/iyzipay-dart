@@ -1,22 +1,22 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'create_card_request.dart';
+part of 'reporting_payment_detail_request.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-CreateCardRequest _$CreateCardRequestFromJson(Map<String, dynamic> json) =>
-    CreateCardRequest(
+ReportingPaymentDetailRequest _$ReportingPaymentDetailRequestFromJson(
+        Map<String, dynamic> json) =>
+    ReportingPaymentDetailRequest(
       locale: $enumDecodeNullable(_$IyzipayLocaleEnumMap, json['locale']),
       conversationId: json['conversationId'] as String?,
-      externalId: json['externalId'] as String,
-      email: json['email'] as String,
-      cardUserKey: json['cardUserKey'] as String,
-      card: CardInformation.fromJson(json['card'] as Map<String, dynamic>),
+      paymentId: json['paymentId'] as String,
+      paymentConversationId: json['paymentConversationId'] as String,
     );
 
-Map<String, dynamic> _$CreateCardRequestToJson(CreateCardRequest instance) {
+Map<String, dynamic> _$ReportingPaymentDetailRequestToJson(
+    ReportingPaymentDetailRequest instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -27,10 +27,8 @@ Map<String, dynamic> _$CreateCardRequestToJson(CreateCardRequest instance) {
 
   writeNotNull('locale', _$IyzipayLocaleEnumMap[instance.locale]);
   writeNotNull('conversationId', instance.conversationId);
-  val['externalId'] = instance.externalId;
-  val['email'] = instance.email;
-  val['cardUserKey'] = instance.cardUserKey;
-  val['card'] = instance.card;
+  val['paymentId'] = instance.paymentId;
+  val['paymentConversationId'] = instance.paymentConversationId;
   return val;
 }
 

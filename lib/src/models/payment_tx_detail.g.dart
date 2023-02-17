@@ -10,7 +10,7 @@ PaymentTxDetail _$PaymentTxDetailFromJson(Map<String, dynamic> json) =>
     PaymentTxDetail(
       itemId: json['itemId'] as String,
       paymentTransactionId: json['paymentTransactionId'] as int,
-      transactionStatus: json['transactionStatus'] as int,
+      transactionStatus: json['transactionStatus'] as int?,
       price: (json['price'] as num).toDouble(),
       paidPrice: (json['paidPrice'] as num).toDouble(),
       merchantCommissionRate:
@@ -40,26 +40,35 @@ PaymentTxDetail _$PaymentTxDetailFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$PaymentTxDetailToJson(PaymentTxDetail instance) =>
-    <String, dynamic>{
-      'itemId': instance.itemId,
-      'paymentTransactionId': instance.paymentTransactionId,
-      'transactionStatus': instance.transactionStatus,
-      'price': instance.price,
-      'paidPrice': instance.paidPrice,
-      'merchantCommissionRate': instance.merchantCommissionRate,
-      'merchantCommissionRateAmount': instance.merchantCommissionRateAmount,
-      'iyziCommissionRateAmount': instance.iyziCommissionRateAmount,
-      'iyziCommissionFee': instance.iyziCommissionFee,
-      'blockageRate': instance.blockageRate,
-      'blockageRateAmountMerchant': instance.blockageRateAmountMerchant,
-      'blockageRateAmountSubMerchant': instance.blockageRateAmountSubMerchant,
-      'blockageResolvedDate': instance.blockageResolvedDate.toIso8601String(),
-      'subMerchantKey': instance.subMerchantKey,
-      'subMerchantPrice': instance.subMerchantPrice,
-      'subMerchantPayoutRate': instance.subMerchantPayoutRate,
-      'subMerchantPayoutAmount': instance.subMerchantPayoutAmount,
-      'merchantPayoutAmount': instance.merchantPayoutAmount,
-      'convertedPayout': instance.convertedPayout,
-      'refunds': instance.refunds,
-    };
+Map<String, dynamic> _$PaymentTxDetailToJson(PaymentTxDetail instance) {
+  final val = <String, dynamic>{
+    'itemId': instance.itemId,
+    'paymentTransactionId': instance.paymentTransactionId,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('transactionStatus', instance.transactionStatus);
+  val['price'] = instance.price;
+  val['paidPrice'] = instance.paidPrice;
+  val['merchantCommissionRate'] = instance.merchantCommissionRate;
+  val['merchantCommissionRateAmount'] = instance.merchantCommissionRateAmount;
+  val['iyziCommissionRateAmount'] = instance.iyziCommissionRateAmount;
+  val['iyziCommissionFee'] = instance.iyziCommissionFee;
+  val['blockageRate'] = instance.blockageRate;
+  val['blockageRateAmountMerchant'] = instance.blockageRateAmountMerchant;
+  val['blockageRateAmountSubMerchant'] = instance.blockageRateAmountSubMerchant;
+  val['blockageResolvedDate'] = instance.blockageResolvedDate.toIso8601String();
+  val['subMerchantKey'] = instance.subMerchantKey;
+  val['subMerchantPrice'] = instance.subMerchantPrice;
+  val['subMerchantPayoutRate'] = instance.subMerchantPayoutRate;
+  val['subMerchantPayoutAmount'] = instance.subMerchantPayoutAmount;
+  val['merchantPayoutAmount'] = instance.merchantPayoutAmount;
+  val['convertedPayout'] = instance.convertedPayout;
+  val['refunds'] = instance.refunds;
+  return val;
+}

@@ -12,16 +12,5 @@ PagingRequest _$PagingRequestFromJson(Map<String, dynamic> json) =>
       count: json['count'] as int?,
     );
 
-Map<String, dynamic> _$PagingRequestToJson(PagingRequest instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('page', instance.page);
-  writeNotNull('count', instance.count);
-  return val;
-}
+Map<String, dynamic> _$PagingRequestToJson(PagingRequest instance) =>
+    <String, dynamic>{};

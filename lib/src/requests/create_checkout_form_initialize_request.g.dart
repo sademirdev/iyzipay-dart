@@ -33,11 +33,11 @@ CreateCheckoutFormInitializeRequest
           enabledInstallments: (json['enabledInstallments'] as List<dynamic>)
               .map((e) => e as int)
               .toList(),
-          debitCardAllowed: json['debitCardAllowed'] as bool,
-          paymentWithNewCardEnabled: json['paymentWithNewCardEnabled'] as bool,
+          debitCardAllowed: json['debitCardAllowed'] as bool?,
+          paymentWithNewCardEnabled: json['paymentWithNewCardEnabled'] as bool?,
           subscriptionPaymentEnabled:
-              json['subscriptionPaymentEnabled'] as bool,
-          payWithIyzico: json['payWithIyzico'] as bool,
+              json['subscriptionPaymentEnabled'] as bool?,
+          payWithIyzico: json['payWithIyzico'] as bool?,
         );
 
 Map<String, dynamic> _$CreateCheckoutFormInitializeRequestToJson(
@@ -67,10 +67,11 @@ Map<String, dynamic> _$CreateCheckoutFormInitializeRequestToJson(
   val['cardUserKey'] = instance.cardUserKey;
   val['posOrderId'] = instance.posOrderId;
   val['enabledInstallments'] = instance.enabledInstallments;
-  val['debitCardAllowed'] = instance.debitCardAllowed;
-  val['paymentWithNewCardEnabled'] = instance.paymentWithNewCardEnabled;
-  val['subscriptionPaymentEnabled'] = instance.subscriptionPaymentEnabled;
-  val['payWithIyzico'] = instance.payWithIyzico;
+  writeNotNull('debitCardAllowed', instance.debitCardAllowed);
+  writeNotNull('paymentWithNewCardEnabled', instance.paymentWithNewCardEnabled);
+  writeNotNull(
+      'subscriptionPaymentEnabled', instance.subscriptionPaymentEnabled);
+  writeNotNull('payWithIyzico', instance.payWithIyzico);
   return val;
 }
 

@@ -9,9 +9,11 @@ part of 'create_bkm_initialize_request.dart';
 CreateBkmInitializeRequest _$CreateBkmInitializeRequestFromJson(
         Map<String, dynamic> json) =>
     CreateBkmInitializeRequest(
+      locale: $enumDecodeNullable(_$IyzipayLocaleEnumMap, json['locale']),
+      conversationId: json['conversationId'] as String?,
       price: (json['price'] as num).toDouble(),
       basketId: json['basketId'] as String,
-      paymentGroup: json['paymentGroup'] as String,
+      paymentGroup: $enumDecode(_$PaymentGroupEnumMap, json['paymentGroup']),
       buyer: Buyer.fromJson(json['buyer'] as Map<String, dynamic>),
       shippingAddress:
           Address.fromJson(json['shippingAddress'] as Map<String, dynamic>),
@@ -22,27 +24,48 @@ CreateBkmInitializeRequest _$CreateBkmInitializeRequestFromJson(
           .toList(),
       callbackUrl: json['callbackUrl'] as String,
       paymentSource: json['paymentSource'] as String,
-      currency: $enumDecode(_$CurrencyEnumMap, json['currency']),
-      enabledInstallments: (json['enabledInstallments'] as List<dynamic>)
-          .map((e) => e as int)
+      currency: $enumDecodeNullable(_$CurrencyEnumMap, json['currency']),
+      enabledInstallments: (json['enabledInstallments'] as List<dynamic>?)
+          ?.map((e) => e as int)
           .toList(),
     );
 
 Map<String, dynamic> _$CreateBkmInitializeRequestToJson(
-        CreateBkmInitializeRequest instance) =>
-    <String, dynamic>{
-      'price': instance.price,
-      'basketId': instance.basketId,
-      'paymentGroup': instance.paymentGroup,
-      'buyer': instance.buyer,
-      'shippingAddress': instance.shippingAddress,
-      'billingAddress': instance.billingAddress,
-      'basketItems': instance.basketItems,
-      'callbackUrl': instance.callbackUrl,
-      'paymentSource': instance.paymentSource,
-      'currency': _$CurrencyEnumMap[instance.currency]!,
-      'enabledInstallments': instance.enabledInstallments,
-    };
+    CreateBkmInitializeRequest instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('locale', _$IyzipayLocaleEnumMap[instance.locale]);
+  writeNotNull('conversationId', instance.conversationId);
+  val['price'] = instance.price;
+  val['basketId'] = instance.basketId;
+  val['paymentGroup'] = _$PaymentGroupEnumMap[instance.paymentGroup]!;
+  val['buyer'] = instance.buyer;
+  val['shippingAddress'] = instance.shippingAddress;
+  val['billingAddress'] = instance.billingAddress;
+  val['basketItems'] = instance.basketItems;
+  val['callbackUrl'] = instance.callbackUrl;
+  val['paymentSource'] = instance.paymentSource;
+  writeNotNull('currency', _$CurrencyEnumMap[instance.currency]);
+  writeNotNull('enabledInstallments', instance.enabledInstallments);
+  return val;
+}
+
+const _$IyzipayLocaleEnumMap = {
+  IyzipayLocale.tr: 'tr',
+  IyzipayLocale.en: 'en',
+};
+
+const _$PaymentGroupEnumMap = {
+  PaymentGroup.product: 'PRODUCT',
+  PaymentGroup.listing: 'LISTING',
+  PaymentGroup.subscription: 'SUBSCRIPTION',
+};
 
 const _$CurrencyEnumMap = {
   Currency.TRY: 'TRY',

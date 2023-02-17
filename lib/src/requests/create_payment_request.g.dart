@@ -14,9 +14,10 @@ CreatePaymentRequest _$CreatePaymentRequestFromJson(
       price: (json['price'] as num).toDouble(),
       paidPrice: (json['paidPrice'] as num).toDouble(),
       installment: json['installment'] as int? ?? Constants.SINGLE_INSTALLMENT,
-      paymentChannel: json['paymentChannel'] as String,
+      paymentChannel:
+          $enumDecode(_$PaymentChannelEnumMap, json['paymentChannel']),
       basketId: json['basketId'] as String,
-      paymentGroup: json['paymentGroup'] as String,
+      paymentGroup: $enumDecode(_$PaymentGroupEnumMap, json['paymentGroup']),
       paymentCard:
           PaymentCard.fromJson(json['paymentCard'] as Map<String, dynamic>),
       buyer: Buyer.fromJson(json['buyer'] as Map<String, dynamic>),
@@ -28,12 +29,14 @@ CreatePaymentRequest _$CreatePaymentRequestFromJson(
           .map((e) => BasketItem.fromJson(e as Map<String, dynamic>))
           .toList(),
       paymentSource: json['paymentSource'] as String,
-      currency: json['currency'] as String,
+      currency: $enumDecode(_$CurrencyEnumMap, json['currency']),
       posOrderId: json['posOrderId'] as String,
       connectorName: json['connectorName'] as String,
       callbackUrl: json['callbackUrl'] as String,
       gsmNumber: json['gsmNumber'] as String,
-      reward: Loyalty.fromJson(json['reward'] as Map<String, dynamic>),
+      reward: json['reward'] == null
+          ? null
+          : Loyalty.fromJson(json['reward'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$CreatePaymentRequestToJson(
@@ -51,25 +54,53 @@ Map<String, dynamic> _$CreatePaymentRequestToJson(
   val['price'] = instance.price;
   val['paidPrice'] = instance.paidPrice;
   writeNotNull('installment', instance.installment);
-  val['paymentChannel'] = instance.paymentChannel;
+  val['paymentChannel'] = _$PaymentChannelEnumMap[instance.paymentChannel]!;
   val['basketId'] = instance.basketId;
-  val['paymentGroup'] = instance.paymentGroup;
+  val['paymentGroup'] = _$PaymentGroupEnumMap[instance.paymentGroup]!;
   val['paymentCard'] = instance.paymentCard;
   val['buyer'] = instance.buyer;
   val['shippingAddress'] = instance.shippingAddress;
   val['billingAddress'] = instance.billingAddress;
   val['basketItems'] = instance.basketItems;
   val['paymentSource'] = instance.paymentSource;
-  val['currency'] = instance.currency;
+  val['currency'] = _$CurrencyEnumMap[instance.currency]!;
   val['posOrderId'] = instance.posOrderId;
   val['connectorName'] = instance.connectorName;
   val['callbackUrl'] = instance.callbackUrl;
   val['gsmNumber'] = instance.gsmNumber;
-  val['reward'] = instance.reward;
+  writeNotNull('reward', instance.reward);
   return val;
 }
 
 const _$IyzipayLocaleEnumMap = {
   IyzipayLocale.tr: 'tr',
   IyzipayLocale.en: 'en',
+};
+
+const _$PaymentChannelEnumMap = {
+  PaymentChannel.mobile: 'MOBILE',
+  PaymentChannel.web: 'WEB',
+  PaymentChannel.mobileWeb: 'MOBILE_WEB',
+  PaymentChannel.mobileIOS: 'MOBILE_IOS',
+  PaymentChannel.mobileAndroid: 'MOBILE_ANDROID',
+  PaymentChannel.mobileWindows: 'MOBILE_WINDOWS',
+  PaymentChannel.mobileTablet: 'MOBILE_TABLET',
+  PaymentChannel.mobilePhone: 'MOBILE_PHONE',
+};
+
+const _$PaymentGroupEnumMap = {
+  PaymentGroup.product: 'PRODUCT',
+  PaymentGroup.listing: 'LISTING',
+  PaymentGroup.subscription: 'SUBSCRIPTION',
+};
+
+const _$CurrencyEnumMap = {
+  Currency.TRY: 'TRY',
+  Currency.EUR: 'EUR',
+  Currency.USD: 'USD',
+  Currency.IRR: 'IRR',
+  Currency.GBP: 'GBP',
+  Currency.NOK: 'NOK',
+  Currency.RUB: 'RUB',
+  Currency.CHF: 'CHF',
 };

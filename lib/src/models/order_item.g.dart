@@ -12,7 +12,7 @@ OrderItem _$OrderItemFromJson(Map<String, dynamic> json) => OrderItem(
       name: json['name'] as String,
       category1: json['category1'] as String,
       category2: json['category2'] as String?,
-      itemType: json['itemType'] as String,
+      itemType: $enumDecode(_$OrderItemTypeEnumMap, json['itemType']),
       itemUrl: json['itemUrl'] as String,
       itemDescription: json['itemDescription'] as String,
     );
@@ -32,8 +32,13 @@ Map<String, dynamic> _$OrderItemToJson(OrderItem instance) {
   }
 
   writeNotNull('category2', instance.category2);
-  val['itemType'] = instance.itemType;
+  val['itemType'] = _$OrderItemTypeEnumMap[instance.itemType]!;
   val['itemUrl'] = instance.itemUrl;
   val['itemDescription'] = instance.itemDescription;
   return val;
 }
+
+const _$OrderItemTypeEnumMap = {
+  OrderItemType.physical: 'PHYSICAL',
+  OrderItemType.virtual: 'VIRTUAL',
+};

@@ -16,15 +16,15 @@ UpdateSubMerchantRequest _$UpdateSubMerchantRequestFromJson(
       gsmNumber: json['gsmNumber'] as String,
       address: json['address'] as String,
       iban: json['iban'] as String,
-      taxOffice: json['taxOffice'] as String,
-      contactName: json['contactName'] as String,
-      contactSurname: json['contactSurname'] as String,
-      legalCompanyTitle: json['legalCompanyTitle'] as String,
-      swiftCode: json['swiftCode'] as String,
+      taxOffice: json['taxOffice'] as String?,
+      contactName: json['contactName'] as String?,
+      contactSurname: json['contactSurname'] as String?,
+      legalCompanyTitle: json['legalCompanyTitle'] as String?,
+      swiftCode: json['swiftCode'] as String?,
       currency: $enumDecode(_$CurrencyEnumMap, json['currency']),
-      identityNumber: json['identityNumber'] as String,
-      taxNumber: json['taxNumber'] as String,
-      subMerchantKey: json['subMerchantKey'] as String,
+      identityNumber: json['identityNumber'] as String?,
+      taxNumber: json['taxNumber'] as String?,
+      subMerchantKey: json['subMerchantKey'] as String?,
       settlementDescriptionTemplate:
           json['settlementDescriptionTemplate'] as String?,
     );
@@ -46,15 +46,15 @@ Map<String, dynamic> _$UpdateSubMerchantRequestToJson(
   val['gsmNumber'] = instance.gsmNumber;
   val['address'] = instance.address;
   val['iban'] = instance.iban;
-  val['taxOffice'] = instance.taxOffice;
-  val['contactName'] = instance.contactName;
-  val['contactSurname'] = instance.contactSurname;
-  val['legalCompanyTitle'] = instance.legalCompanyTitle;
-  val['swiftCode'] = instance.swiftCode;
+  writeNotNull('taxOffice', instance.taxOffice);
+  writeNotNull('contactName', instance.contactName);
+  writeNotNull('contactSurname', instance.contactSurname);
+  writeNotNull('legalCompanyTitle', instance.legalCompanyTitle);
+  writeNotNull('swiftCode', instance.swiftCode);
   val['currency'] = _$CurrencyEnumMap[instance.currency]!;
-  val['identityNumber'] = instance.identityNumber;
-  val['taxNumber'] = instance.taxNumber;
-  val['subMerchantKey'] = instance.subMerchantKey;
+  writeNotNull('identityNumber', instance.identityNumber);
+  writeNotNull('taxNumber', instance.taxNumber);
+  writeNotNull('subMerchantKey', instance.subMerchantKey);
   writeNotNull(
       'settlementDescriptionTemplate', instance.settlementDescriptionTemplate);
   return val;

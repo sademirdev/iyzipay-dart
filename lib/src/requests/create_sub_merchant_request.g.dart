@@ -16,16 +16,17 @@ CreateSubMerchantRequest _$CreateSubMerchantRequestFromJson(
       gsmNumber: json['gsmNumber'] as String,
       address: json['address'] as String,
       iban: json['iban'] as String,
-      taxOffice: json['taxOffice'] as String,
-      contactName: json['contactName'] as String,
-      contactSurname: json['contactSurname'] as String,
-      legalCompanyTitle: json['legalCompanyTitle'] as String,
-      swiftCode: json['swiftCode'] as String,
+      taxOffice: json['taxOffice'] as String?,
+      contactName: json['contactName'] as String?,
+      contactSurname: json['contactSurname'] as String?,
+      legalCompanyTitle: json['legalCompanyTitle'] as String?,
+      swiftCode: json['swiftCode'] as String?,
       currency: $enumDecode(_$CurrencyEnumMap, json['currency']),
-      identityNumber: json['identityNumber'] as String,
-      taxNumber: json['taxNumber'] as String,
-      subMerchantExternalId: json['subMerchantExternalId'] as String,
-      subMerchantType: json['subMerchantType'] as String,
+      identityNumber: json['identityNumber'] as String?,
+      taxNumber: json['taxNumber'] as String?,
+      subMerchantExternalId: json['subMerchantExternalId'] as String?,
+      subMerchantType: $enumDecodeNullable(
+          _$SubMerchantTypeEnumMap, json['subMerchantType']),
       settlementDescriptionTemplate:
           json['settlementDescriptionTemplate'] as String?,
     );
@@ -47,16 +48,17 @@ Map<String, dynamic> _$CreateSubMerchantRequestToJson(
   val['gsmNumber'] = instance.gsmNumber;
   val['address'] = instance.address;
   val['iban'] = instance.iban;
-  val['taxOffice'] = instance.taxOffice;
-  val['contactName'] = instance.contactName;
-  val['contactSurname'] = instance.contactSurname;
-  val['legalCompanyTitle'] = instance.legalCompanyTitle;
-  val['swiftCode'] = instance.swiftCode;
+  writeNotNull('taxOffice', instance.taxOffice);
+  writeNotNull('contactName', instance.contactName);
+  writeNotNull('contactSurname', instance.contactSurname);
+  writeNotNull('legalCompanyTitle', instance.legalCompanyTitle);
+  writeNotNull('swiftCode', instance.swiftCode);
   val['currency'] = _$CurrencyEnumMap[instance.currency]!;
-  val['identityNumber'] = instance.identityNumber;
-  val['taxNumber'] = instance.taxNumber;
-  val['subMerchantExternalId'] = instance.subMerchantExternalId;
-  val['subMerchantType'] = instance.subMerchantType;
+  writeNotNull('identityNumber', instance.identityNumber);
+  writeNotNull('taxNumber', instance.taxNumber);
+  writeNotNull('subMerchantExternalId', instance.subMerchantExternalId);
+  writeNotNull(
+      'subMerchantType', _$SubMerchantTypeEnumMap[instance.subMerchantType]);
   writeNotNull(
       'settlementDescriptionTemplate', instance.settlementDescriptionTemplate);
   return val;
@@ -76,4 +78,10 @@ const _$CurrencyEnumMap = {
   Currency.NOK: 'NOK',
   Currency.RUB: 'RUB',
   Currency.CHF: 'CHF',
+};
+
+const _$SubMerchantTypeEnumMap = {
+  SubMerchantType.personal: 'PERSONAL',
+  SubMerchantType.privateCompany: 'PRIVATE_COMPANY',
+  SubMerchantType.limitedOrJointStockCompany: 'LIMITED_OR_JOINT_STOCK_COMPANY',
 };

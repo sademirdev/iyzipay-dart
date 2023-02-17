@@ -13,7 +13,7 @@ PaymentDetail _$PaymentDetailFromJson(Map<String, dynamic> json) =>
       paymentRefundStatus: json['paymentRefundStatus'] as String,
       price: (json['price'] as num).toDouble(),
       paidPrice: (json['paidPrice'] as num).toDouble(),
-      installment: json['installment'] as int,
+      installment: json['installment'] as int?,
       merchantCommissionRate:
           (json['merchantCommissionRate'] as num).toDouble(),
       merchantCommissionRateAmount:
@@ -22,7 +22,7 @@ PaymentDetail _$PaymentDetailFromJson(Map<String, dynamic> json) =>
           (json['iyziCommissionRateAmount'] as num).toDouble(),
       iyziCommissionFee: (json['iyziCommissionFee'] as num).toDouble(),
       paymentConversationId: json['paymentConversationId'] as String,
-      fraudStatus: json['fraudStatus'] as int,
+      fraudStatus: json['fraudStatus'] as int?,
       cardType: json['cardType'] as String,
       cardAssociation: json['cardAssociation'] as String,
       cardFamily: json['cardFamily'] as String,
@@ -37,7 +37,7 @@ PaymentDetail _$PaymentDetailFromJson(Map<String, dynamic> json) =>
       threeDS: json['threeDS'] as bool,
       phase: json['phase'] as String,
       acquirerBankName: json['acquirerBankName'] as String,
-      mdStatus: json['mdStatus'] as int,
+      mdStatus: json['mdStatus'] as int?,
       hostReference: json['hostReference'] as String,
       createdDate: DateTime.parse(json['createdDate'] as String),
       updatedDate: DateTime.parse(json['updatedDate'] as String),
@@ -50,39 +50,48 @@ PaymentDetail _$PaymentDetailFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$PaymentDetailToJson(PaymentDetail instance) =>
-    <String, dynamic>{
-      'paymentId': instance.paymentId,
-      'paymentStatus': instance.paymentStatus,
-      'paymentRefundStatus': instance.paymentRefundStatus,
-      'price': instance.price,
-      'paidPrice': instance.paidPrice,
-      'installment': instance.installment,
-      'merchantCommissionRate': instance.merchantCommissionRate,
-      'merchantCommissionRateAmount': instance.merchantCommissionRateAmount,
-      'iyziCommissionRateAmount': instance.iyziCommissionRateAmount,
-      'iyziCommissionFee': instance.iyziCommissionFee,
-      'paymentConversationId': instance.paymentConversationId,
-      'fraudStatus': instance.fraudStatus,
-      'cardType': instance.cardType,
-      'cardAssociation': instance.cardAssociation,
-      'cardFamily': instance.cardFamily,
-      'cardToken': instance.cardToken,
-      'cardUserKey': instance.cardUserKey,
-      'binNumber': instance.binNumber,
-      'lastFourDigits': instance.lastFourDigits,
-      'basketId': instance.basketId,
-      'currency': instance.currency,
-      'connectorName': instance.connectorName,
-      'authCode': instance.authCode,
-      'threeDS': instance.threeDS,
-      'phase': instance.phase,
-      'acquirerBankName': instance.acquirerBankName,
-      'mdStatus': instance.mdStatus,
-      'hostReference': instance.hostReference,
-      'createdDate': instance.createdDate.toIso8601String(),
-      'updatedDate': instance.updatedDate.toIso8601String(),
-      'orderId': instance.orderId,
-      'cancels': instance.cancels,
-      'itemTransactions': instance.itemTransactions,
-    };
+Map<String, dynamic> _$PaymentDetailToJson(PaymentDetail instance) {
+  final val = <String, dynamic>{
+    'paymentId': instance.paymentId,
+    'paymentStatus': instance.paymentStatus,
+    'paymentRefundStatus': instance.paymentRefundStatus,
+    'price': instance.price,
+    'paidPrice': instance.paidPrice,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('installment', instance.installment);
+  val['merchantCommissionRate'] = instance.merchantCommissionRate;
+  val['merchantCommissionRateAmount'] = instance.merchantCommissionRateAmount;
+  val['iyziCommissionRateAmount'] = instance.iyziCommissionRateAmount;
+  val['iyziCommissionFee'] = instance.iyziCommissionFee;
+  val['paymentConversationId'] = instance.paymentConversationId;
+  writeNotNull('fraudStatus', instance.fraudStatus);
+  val['cardType'] = instance.cardType;
+  val['cardAssociation'] = instance.cardAssociation;
+  val['cardFamily'] = instance.cardFamily;
+  val['cardToken'] = instance.cardToken;
+  val['cardUserKey'] = instance.cardUserKey;
+  val['binNumber'] = instance.binNumber;
+  val['lastFourDigits'] = instance.lastFourDigits;
+  val['basketId'] = instance.basketId;
+  val['currency'] = instance.currency;
+  val['connectorName'] = instance.connectorName;
+  val['authCode'] = instance.authCode;
+  val['threeDS'] = instance.threeDS;
+  val['phase'] = instance.phase;
+  val['acquirerBankName'] = instance.acquirerBankName;
+  writeNotNull('mdStatus', instance.mdStatus);
+  val['hostReference'] = instance.hostReference;
+  val['createdDate'] = instance.createdDate.toIso8601String();
+  val['updatedDate'] = instance.updatedDate.toIso8601String();
+  val['orderId'] = instance.orderId;
+  val['cancels'] = instance.cancels;
+  val['itemTransactions'] = instance.itemTransactions;
+  return val;
+}

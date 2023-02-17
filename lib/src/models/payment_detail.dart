@@ -48,13 +48,13 @@ class PaymentDetail with JsonConvertible<PaymentDetail> {
   final String paymentRefundStatus;
   final double price;
   final double paidPrice;
-  final int installment;
+  final int? installment;
   final double merchantCommissionRate;
   final double merchantCommissionRateAmount;
   final double iyziCommissionRateAmount;
   final double iyziCommissionFee;
   final String paymentConversationId;
-  final int fraudStatus;
+  final int? fraudStatus;
   final String cardType;
   final String cardAssociation;
   final String cardFamily;
@@ -69,7 +69,7 @@ class PaymentDetail with JsonConvertible<PaymentDetail> {
   final bool threeDS;
   final String phase;
   final String acquirerBankName;
-  final int mdStatus;
+  final int? mdStatus;
   final String hostReference;
   final DateTime createdDate;
   final DateTime updatedDate;

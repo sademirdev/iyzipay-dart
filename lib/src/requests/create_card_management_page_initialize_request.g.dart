@@ -16,7 +16,7 @@ CreateCardManagementPageInitializeRequest
           validateNewCard: json['validateNewCard'] as bool,
           externalId: json['externalId'] as String,
           email: json['email'] as String,
-          cardUserKey: json['cardUserKey'] as String,
+          cardUserKey: json['cardUserKey'] as String?,
           callbackUrl: json['callbackUrl'] as String,
           debitCardAllowed: json['debitCardAllowed'] as bool,
         );
@@ -37,7 +37,7 @@ Map<String, dynamic> _$CreateCardManagementPageInitializeRequestToJson(
   val['validateNewCard'] = instance.validateNewCard;
   val['externalId'] = instance.externalId;
   val['email'] = instance.email;
-  val['cardUserKey'] = instance.cardUserKey;
+  writeNotNull('cardUserKey', instance.cardUserKey);
   val['callbackUrl'] = instance.callbackUrl;
   val['debitCardAllowed'] = instance.debitCardAllowed;
   return val;

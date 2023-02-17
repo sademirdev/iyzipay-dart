@@ -14,12 +14,14 @@ PaymentCard _$PaymentCardFromJson(Map<String, dynamic> json) => PaymentCard(
       cvc: json['cvc'] as String,
       registerCard: json['registerCard'] as int?,
       cardAlias: json['cardAlias'] as String,
-      cardToken: json['cardToken'] as String,
-      cardUserKey: json['cardUserKey'] as String,
-      metadata: Map<String, String>.from(json['metadata'] as Map),
-      consumerToken: json['consumerToken'] as String,
-      registerConsumerCard: json['registerConsumerCard'] as bool,
-      ucsToken: json['ucsToken'] as String,
+      cardToken: json['cardToken'] as String?,
+      cardUserKey: json['cardUserKey'] as String?,
+      metadata: (json['metadata'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as String),
+      ),
+      consumerToken: json['consumerToken'] as String?,
+      registerConsumerCard: json['registerConsumerCard'] as bool?,
+      ucsToken: json['ucsToken'] as String?,
     );
 
 Map<String, dynamic> _$PaymentCardToJson(PaymentCard instance) {
@@ -39,11 +41,11 @@ Map<String, dynamic> _$PaymentCardToJson(PaymentCard instance) {
 
   writeNotNull('registerCard', instance.registerCard);
   val['cardAlias'] = instance.cardAlias;
-  val['cardToken'] = instance.cardToken;
-  val['cardUserKey'] = instance.cardUserKey;
-  val['metadata'] = instance.metadata;
-  val['consumerToken'] = instance.consumerToken;
-  val['registerConsumerCard'] = instance.registerConsumerCard;
-  val['ucsToken'] = instance.ucsToken;
+  writeNotNull('cardToken', instance.cardToken);
+  writeNotNull('cardUserKey', instance.cardUserKey);
+  writeNotNull('metadata', instance.metadata);
+  writeNotNull('consumerToken', instance.consumerToken);
+  writeNotNull('registerConsumerCard', instance.registerConsumerCard);
+  writeNotNull('ucsToken', instance.ucsToken);
   return val;
 }

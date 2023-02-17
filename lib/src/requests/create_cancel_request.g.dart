@@ -12,8 +12,8 @@ CreateCancelRequest _$CreateCancelRequestFromJson(Map<String, dynamic> json) =>
       conversationId: json['conversationId'] as String?,
       paymentId: json['paymentId'] as String,
       ip: json['ip'] as String,
-      reason: $enumDecode(_$RefundReasonEnumMap, json['reason']),
-      description: json['description'] as String,
+      reason: $enumDecodeNullable(_$RefundReasonEnumMap, json['reason']),
+      description: json['description'] as String?,
     );
 
 Map<String, dynamic> _$CreateCancelRequestToJson(CreateCancelRequest instance) {
@@ -29,8 +29,8 @@ Map<String, dynamic> _$CreateCancelRequestToJson(CreateCancelRequest instance) {
   writeNotNull('conversationId', instance.conversationId);
   val['paymentId'] = instance.paymentId;
   val['ip'] = instance.ip;
-  val['reason'] = _$RefundReasonEnumMap[instance.reason]!;
-  val['description'] = instance.description;
+  writeNotNull('reason', _$RefundReasonEnumMap[instance.reason]);
+  writeNotNull('description', instance.description);
   return val;
 }
 
