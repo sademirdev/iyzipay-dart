@@ -1,6 +1,6 @@
 import 'package:iyzipay/src/json_convertible.dart';
-import 'package:iyzipay/src/models/payment_tx_payout_detail.dart';
-import 'package:iyzipay/src/models/refund_tx_detail.dart';
+import 'package:iyzipay/src/models/v2/transaction/payment_tx_payout_detail.dart';
+import 'package:iyzipay/src/models/v2/transaction/refund_tx_detail.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'payment_tx_detail.g.dart';
