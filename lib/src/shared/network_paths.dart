@@ -3,6 +3,7 @@ enum NetworkPaths {
   retrieveReportingPaymentDetail('/v2/reporting/payment/details'),
   v2iyziLinkProducts('/v2/iyzilink/products'),
 
+  createLoyaltyInquire('/payment/loyalty/inquire'),
   retrieveThreedsPayment('/payment/detail'),
   createThreedsPayment('/payment/3dsecure/auth'),
   createThreedsInitializePreAuth('/payment/3dsecure/initialize/preauth'),
