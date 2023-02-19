@@ -1,4 +1,5 @@
 enum NetworkPaths {
+  retrieveReportingPaymentTransaction('/v2/reporting/payment/transactions'),
   retrieveReportingPaymentDetail('/v2/reporting/payment/details'),
   v2iyziLinkProducts('/v2/iyzilink/products'),
 
