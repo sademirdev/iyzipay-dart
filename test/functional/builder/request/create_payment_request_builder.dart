@@ -2,7 +2,7 @@ import 'package:iyzipay/iyzipay.dart';
 import 'package:iyzipay/src/models/address.dart';
 import 'package:iyzipay/src/models/basket_item.dart';
 import 'package:iyzipay/src/models/buyer.dart';
-import 'package:iyzipay/src/models/loyalty.dart';
+import 'package:iyzipay/src/models/loyalty/loyalty.dart';
 import 'package:iyzipay/src/models/payment_card.dart';
 import 'package:iyzipay/src/requests/create_payment_request.dart';
 
