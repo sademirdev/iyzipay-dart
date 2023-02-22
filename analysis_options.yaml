@@ -9,3 +9,4 @@ linter:
   rules:
     lines_longer_than_80_chars: false
     prefer_single_quotes: true
+    public_member_api_docs: false
