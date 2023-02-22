@@ -9,6 +9,7 @@ class Address with JsonConvertible<Address> {
     required this.address,
     this.zipCode,
     required this.contactName,
+    this.district,
     required this.city,
     required this.country,
   });
@@ -49,6 +50,10 @@ class Address with JsonConvertible<Address> {
   ///
   /// - Billing address on the merchant side, name and surname information.
   final String contactName;
+
+  // TODO(sametdmr): handle doc district
+  /// used for subscription
+  final String? district;
 
   /// For ShippingAddress:
   ///

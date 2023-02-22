@@ -1,12 +1,17 @@
 import 'package:iyzipay/src/base_request.dart';
 import 'package:iyzipay/src/http_client.dart';
 import 'package:iyzipay/src/iyzipay_resource.dart';
+import 'package:iyzipay/src/json_convertible.dart';
 import 'package:iyzipay/src/models/payment_detail.dart';
 import 'package:iyzipay/src/options.dart';
 import 'package:iyzipay/src/requests/reporting_payment_detail_request.dart';
 import 'package:iyzipay/src/shared/network_paths.dart';
+import 'package:json_annotation/json_annotation.dart';
+
+part 'reporting_payment_detail.g.dart';
 
 /// [ReportingPaymentDetail] can also be called as `TransactionDetail`
+@JsonSerializable(includeIfNull: false)
 class ReportingPaymentDetail extends IyzipayResource {
   const ReportingPaymentDetail({
     super.status,
@@ -59,4 +64,11 @@ class ReportingPaymentDetail extends IyzipayResource {
 
     return queryParams.toString();
   }
+
+  @override
+  ReportingPaymentDetail fromJson(JsonMap json) =>
+      _$ReportingPaymentDetailFromJson(json);
+
+  @override
+  JsonMap toJson() => _$ReportingPaymentDetailToJson(this);
 }

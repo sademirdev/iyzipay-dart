@@ -1,4 +1,24 @@
 enum NetworkPaths {
+  createWithSubscriptionSubscriptionCardUpdateCheckoutFormInitialize(
+    '/v2/subscription/card-update/checkoutform/initialize/with-subscription',
+  ),
+  createSubscriptionCardUpdateCheckoutFormInitialize(
+    '/v2/subscription/card-update/checkoutform/initialize',
+  ),
+  retrySubscriptionOperation('/v2/subscription/operation/retry'),
+  retrieveSubscriptionOrder('/v2/subscription/orders'),
+  initializeSubscriptionWithCustomer(
+    '/v2/subscription/initialize/with-customer',
+  ),
+  initializeSubscription('/v2/subscription/initialize'),
+  initializeSubscriptionCheckoutForm(
+    '/v2/subscription/checkoutform/initialize',
+  ),
+  v2subscriptionCheckoutForm('/v2/subscription/checkoutform'),
+  v2subscriptions('/v2/subscription/subscriptions'),
+  v2subscriptionProducts('/v2/subscription/products'),
+  v2subscriptionPricingPlans('/v2/subscription/pricing-plans'),
+  v2subscriptionCustomers('/v2/subscription/customers'),
   createUcsInitResource('/v2/ucs/init'),
   retrieveReportingPaymentTransaction('/v2/reporting/payment/transactions'),
   retrieveReportingPaymentDetail('/v2/reporting/payment/details'),
